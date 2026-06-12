@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Speaker Profile - The Mechatronic Arc</title>
+  <meta name="description" id="meta-description" content="Speaker profile details and presentation abstract for The Mechatronic Arc workshop at AIM 2026.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #04142f;      /* Deep Navy Blue from main website */
+      --primary-hover: #104b7d;      /* Highlight/hover Blue */
+      --bg-light: #f1f7fc;           /* Light background */
+      --bg-white: #ffffff;
+      --text-default: #444444;       /* Default text color */
+      --text-muted: #666666;
+      --border-color: #bbd7f0;       /* Border/divider color */
+      --card-shadow: 0 10px 40px rgba(4, 20, 47, 0.06);
+      --card-shadow-hover: 0 15px 45px rgba(4, 20, 47, 0.12);
+      --accent-color: #e74c3c;       /* Red accent color for (to be confirmed) */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-default);
+      background-color: var(--bg-light);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.minimal-header {
+      background-color: var(--primary-color);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      color: white;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.25s ease;
+    }
+
+    .logo-link:hover {
+      opacity: 0.85;
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--border-color);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+    }
+
+    /* Card Layout */
+    .profile-card {
+      background-color: var(--bg-white);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .profile-card:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    /* Left Sidebar */
+    .profile-sidebar {
+      background-color: #fafcfe;
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .back-btn-container {
+      width: 100%;
+      margin-bottom: 2.5rem;
+      display: flex;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .back-btn:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(4, 20, 47, 0.1);
+    }
+
+    .back-btn svg {
+      transition: transform 0.25s ease;
+    }
+
+    .back-btn:hover svg {
+      transform: translateX(-4px);
+    }
+
+    .speaker-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 4px solid var(--bg-white);
+      box-shadow: 0 8px 25px rgba(4, 20, 47, 0.1);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .speaker-name-h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 0 0 0.5rem 0;
+      line-height: 1.2;
+    }
+
+    .speaker-status {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--accent-color);
+      background-color: rgba(231, 76, 60, 0.08);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .speaker-affiliation {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    /* Right Main Area */
+    .profile-main {
+      padding: 3.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .section-block h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 0 0 1.25rem 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-block h2::after {
+      content: '';
+      display: block;
+      width: 35px;
+      height: 3px;
+      background-color: var(--primary-hover);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    .talk-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      line-height: 1.4;
+      margin: 0 0 1rem 0;
+    }
+
+    .abstract-text, .bio-text {
+      text-align: justify;
+      color: var(--text-default);
+      font-size: 1.05rem;
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    /* Error View */
+    .error-container {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--bg-white);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .error-container h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .error-container p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: var(--bg-white);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .profile-card {
+        grid-template-columns: 1fr;
+      }
+      .profile-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 3rem 2rem 2rem;
+      }
+      .back-btn-container {
+        margin-bottom: 1.5rem;
+        justify-content: center;
+      }
+      .profile-main {
+        padding: 3rem 2rem;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="minimal-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link">
+        <span class="logo-dot"></span>
+        The Mechatronic Arc
+      </a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="profile-container" id="profile-wrapper">
+      <!-- Dynamic Profile Card -->
+      <div class="profile-card" id="speaker-card-container">
+        
+        <div class="profile-sidebar">
+          <div class="back-btn-container">
+            <a href="index.html#speakers" class="back-btn" id="btn-back">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back to Main
+            </a>
+          </div>
+          <img src="" alt="" class="speaker-img" id="speaker-avatar">
+          <h1 class="speaker-name-h1" id="speaker-name"></h1>
+          <div class="speaker-status" id="speaker-status" style="display: none;">To be confirmed</div>
+          <div class="speaker-affiliation" id="speaker-affiliation"></div>
+        </div>
+
+        <div class="profile-main">
+          <div class="section-block" id="talk-block">
+            <h2>Presentation Talk</h2>
+            <div class="talk-title" id="talk-title"></div>
+            <p class="abstract-text" id="talk-abstract"></p>
+          </div>
+
+          <div class="section-block" id="bio-block">
+            <h2>Biography</h2>
+            <p class="bio-text" id="speaker-bio"></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Error view container (hidden by default) -->
+      <div class="error-container" id="error-box" style="display: none;">
+        <h1>Speaker Not Found</h1>
+        <p>Sorry, the speaker profile you are trying to view does not exist or has not been announced yet.</p>
+        <a href="index.html#speakers" class="back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Go Back
+        </a>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 The Mechatronic Arc Workshop. All rights reserved.
+  </footer>
+
+  <script>
+    // Speakers data dictionary
+    const speakersData = {
+      tba: {
+        name: "To be announced",
+        avatar: "assets/speakers/placeholder.png",
+        status: "",
+        affiliation: "TBD",
+        title: "TBD (to be defined)",
+        abstract: "The details and abstract of this presentation will be announced in due course.",
+        bio: "The biography for this speaker will be made available once the speaker is officially announced."
+      },
+      masiero: {
+        name: "Federico Masiero",
+        avatar: "assets/speakers/masiero.jpg",
+        status: "",
+        affiliation: "Technical University of Munich",
+        title: "Magnetic Sensing for Human-Robot Interaction",
+        abstract: "A detailed presentation abstract focusing on virtual estimation, soft magnetic sensors, and proprioceptive tracking will be published soon.",
+        bio: "Federico Masiero is an Italian Postdoctoral Researcher at the Munich Institute of Robotics and Machine Intelligence (MIRMI), at the Technical University of Munich (TUM), Germany. During his PhD at Scuola Superiore Sant’Anna, he worked towards the development of novel, groundbreaking technologies for amputees, based on implanted magnets. Since then, his research goal has been to redefine the way in which humans interact with robotic devices, exploiting magnetic sensing. His research topics span multiple areas, including magnetic modeling and sensing, physical human-robot interaction, and wearable robotics."
+      },
+      garabini: {
+        name: "Manolo Garabini",
+        avatar: "assets/speakers/garabini.jpg",
+        status: "",
+        affiliation: "Università di Pisa",
+        title: "Soft is Nothing Without Control",
+        abstract: "A detailed presentation abstract on the planning, control, and mechanics of variable stiffness actuator joints and soft adaptive robotics will be published soon.",
+        bio: "Manolo Garabini graduated in Mechanical Engineering and received a Ph.D. degree in Robotics from the University of Pisa where he is currently employed as an Assistant Professor. His main research interests are in the design, planning, and control of soft and adaptive robots, from actuators to end-effectors (hands, grippers, feet), to complex multi-dof systems. A part of his activity has been devoted to theoretically proving the effectiveness of soft and adaptive robots in high performance, high efficiency, and resilient tasks via analytical and numerical optimization tools. He contributed to the realization of modular Variable Stiffness Actuators. He contributed to the design of the joints and the lower body of the humanoid robot WALK-MAN and participated in the DARPA Robotics Challenge and at a field test in Amatrice, Italy after a disastrous earthquake event. Moreover, he co-designed hardware and software of a dual-arm robot - WRAPP-up - for flexible picking and palletizing of goods, and of a robot for film unwrapping. Recently he contributed to the development of several algorithms, based on optimal control and learning, for motion planning and control in minimum time and under uncertainty. He has been the Principal Investigator in the THING H2020 EU Research Project for the University of Pisa, and currently, he is the coordinator of the NI H2020 project, and of the Dysturbance sub-project of the EUROBENCH H2020 project. He is the co-founder of two companies, qbrobotics s.r.l., and XStar Motion s.r.l."
+      },
+      saveriano: {
+        name: "Matteo Saveriano",
+        avatar: "assets/speakers/saveriano.jpg",
+        status: "",
+        affiliation: "Università di Trento",
+        title: "The Role of Energy and Geometry in Contact-Rich Manipulation",
+        abstract: "Robotic manipulation demands for sophisticated control policies and accurate management of the forces exchanged with the environment. While learning-based controllers have shown a great potential in learning complex policies, safety guarantees during the learning and execution phases are still missing. In this talk, I will present recent results on stability- and passivity-based learning-control and its application in contact-rich robotic manipulation and manifold data.",
+        bio: "Matteo Saveriano is an Associate Professor at the Department of Industrial Engineering (DII), University of Trento. Before, he was an Assistant Professor at the University of Innsbruck and a Postdoctoral Researcher at the German Aerospace Center (DLR). He received a Ph.D. degree cum laude in 2017 from the Technical University of Munich, Germany. His research is at the intersection of control theory and machine learning, with a focus on safe and efficient robot learning. His research received several awards, including the Honorable Mention Award for IEEE RA-L 2025. He is the coordinator of the EU HE project INVERSE. He also serves as an Associate Editor for IEEE Robotics and Automation Letters (RA-L), IEEE Transactions on Robotics (T-RO), and The International Journal of Robotics Research (IJRR)."
+      },
+      khatib: {
+        name: "Oussama Khatib",
+        avatar: "assets/speakers/Khatib.jpg",
+        status: "To be confirmed",
+        affiliation: "Stanford University",
+        title: "TBD (to be defined)",
+        abstract: "A detailed abstract of Oussama Khatib's presentation on operational space control, physical safety, and human-centered robotics will be provided upon confirmation.",
+        bio: "Oussama Khatib's research in robotics focuses on novel control architectures, algorithms, sensing, and human-friendly designs for advanced capabilities in complex environments. With an emphasis on enabling robots to interact cooperatively and safely with humans and the physical world, his studies bring understanding of human movement for therapy, athletic training, and performance enhancement. This work on understanding human cognitive task representation and physical skills is enabling transfer for increased robot autonomy. With these core capabilities, his group is exploring applications in healthcare and wellness, industry and service, farms and smart cities, and dangerous and unreachable settings – deep in oceans, mines, and space."
+      },
+      fisac: {
+        name: "Jaime Fernández Fisac",
+        avatar: "assets/speakers/fernandez_fisac.jpg",
+        status: "",
+        affiliation: "Princeton University",
+        title: "Safety through Intelligence: How AI and Control Theory Help Robots Preempt Harm",
+        abstract: "A detailed abstract concerning game-theoretic planning, reachability analysis, safety filters, and algorithmic supervision will be published soon.",
+        bio: "Jaime Fernández Fisac is an Assistant Professor of Electrical and Computer Engineering at Princeton University, where he directs the Safe Robotics Laboratory and co-directs Princeton AI4ALL. His research integrates control systems, game theory, and artificial intelligence to equip robots with transparent safety assurances that users and the public can trust. Before joining Princeton, he was a Research Scientist at Waymo, where he pioneered new approaches to interaction planning that continue to shape how autonomous vehicles share the road today. He is also the co-founder of Vault Robotics, a startup developing agile delivery robots that work alongside human drivers. Prof. Fisac holds an Engineering Degree from Universidad Politécnica de Madrid, a Master’s in Aeronautics from Cranfield University, and a Ph.D. in Electrical Engineering and Computer Sciences from the University of California, Berkeley. His work has been featured in The Wall Street Journal and WIRED, and recognized with the Google and Sony faculty research awards and the NSF CAREER Award."
+      },
+      russo: {
+        name: "Matteo Russo",
+        avatar: "assets/speakers/russo.jpg",
+        status: "",
+        affiliation: "Università di Roma Tor Vergata",
+        title: "Robot design: Reclaiming hardware in the age of AI",
+        abstract: "A detailed abstract regarding advanced mechatronic structures, continuum mechanisms, and soft robot design for medical settings will be published soon.",
+        bio: "Matteo Russo is an Associate Professor with the Department of Industrial Engineering, University of Rome Tor Vergata, Italy. He received his BSc (2013), MSc (2015), and PhD (2019) in mechanical engineering from the University of Cassino, Italy. He was a visiting researcher at RWTH Aachen University, Germany (2015), at the University of the Basque Country, Spain (2016), and at Tokyo Institute of Technology, Japan (2017). From 2019 through 2022, he worked as a Research Fellow at the Rolls-Royce University Technology Centre in Manufacturing and On-Wing Technology, University of Nottingham, UK, where he contributed to the development of soft and parallel robots for the aerospace and nuclear industry. Dr Russo’s main research interests are continuum robots, mechanism design, robot kinematics, and parallel manipulators. His work focuses on the design, modelling, and optimization of innovative robotic systems for aerospace, nuclear, and medical applications. His awards include the FIS Starting Grant, the IFToMM Young Delegate Program Award, the ASME Best Reviewer Award, and several best paper awards at international conferences. Dr Russo is serving as Associate Editor for IEEE/ASME Transactions on Mechatronics, IEEE Robotics and Automation Magazine, IEEE Robotics and Automation Letters, and the International Journal of Advanced Robotics System. He is Associate Chair of the IEEE RAS Technical Committee on Mechanism and Design, and part of the IFToMM Technical Committees on Robotics & Mechatronics and Computational Kinematics."
+      },
+      trumic: {
+        name: "Maja Trumić",
+        avatar: "assets/speakers/trumic.jpg",
+        status: "",
+        affiliation: "Delft University of Technology",
+        title: "Tackling control challenges in soft robotics through model-based approaches",
+        abstract: "A detailed abstract regarding nonlinear control techniques, model-based controllers, and articulated soft robots will be published soon.",
+        bio: "Maja Trumić is an MSCA Postdoctoral Fellow at Delft University of Technology (TU Delft), working under the supervision of Dr. Cosimo Della Santina. Her research focuses on controlling soft robots in confined spaces, which is the core of her Marie Skłodowska-Curie project, Soft-Scout. Previously, she was a Research Associate at the University of Belgrade and a visiting researcher at TU Delft. She earned her Ph.D. in Robotics and Automation from the University of Palermo and the University of Belgrade in 2021, with a thesis focusing on stiffness estimation and adaptive control for soft robots. Her main research interests lie in soft robotics, continuum robots, nonlinear adaptive control, and reinforcement learning."
+      },
+      trigili: {
+        name: "Emilio Trigili",
+        avatar: "assets/speakers/trigili.jpg",
+        status: "",
+        affiliation: "Scuola Superiore Sant'Anna",
+        title: "Human-robot interaction in exoskeletons: from mechanical design to intention-aware control",
+        abstract: "A detailed abstract focusing on upper-limb exoskeletons, intention-decoding, and assistive control strategies will be published soon.",
+        bio: "Emilio Trigili is an Assistant Professor at the BioRobotics Institute of Scuola Superiore Sant'Anna, Pisa, Italy, where he works within the Wearable Robotics Laboratory. His research activity is focused on the design, implementation, and experimental evaluation of advanced control strategies for upper-limb exoskeletons in rehabilitation and assistance scenarios. He is a co-inventor of patented exoskeleton structures and has been an invited speaker at international robotics workshops such as ICNR and IEEE Humanoids."
+      },
+      tessari: {
+        name: "Federico Tessari",
+        avatar: "assets/speakers/tessari.jpg",
+        status: "To be confirmed",
+        affiliation: "Massachusetts Institute of Technology",
+        title: "TBD (to be defined)",
+        abstract: "A detailed abstract on rehabilitation robotics, motor neuroscience, and human motor coordination will be provided upon confirmation.",
+        bio: "Federico Tessari is a postdoctoral associate in Mechanical Engineering and a member of the Newman Laboratory under the direction of Professor Hogan. His research interests include the design and control of robotic and bionic devices for rehabilitation such as prostheses and exoskeletons. Currently he is investigating human physical interaction in order to improve robotic control for a better HMI (human-machine interaction). Originally from Italy, he earned his bachelor’s degree in Mechanical Engineering in 2014 at University of Roma Tre (Italy) and his master’s degree in Mechatronic Engineering in 2016 at Polytechnic of Turin (Italy), both with honors. He later carried out his doctoral activities in the Rehab Technologies Laboratory at the Italian Institute of Technology (IIT-Italy) where he obtained his PhD in Mechanical Engineering in 2021 and carried out his first postdoctoral fellowship before moving to MIT."
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Parse query string for speaker id
+      const params = new URLSearchParams(window.location.search);
+      const speakerId = params.get('id');
+
+      const cardContainer = document.getElementById('speaker-card-container');
+      const errorBox = document.getElementById('error-box');
+
+      // Check if speakerId exists and has data
+      if (speakerId && speakersData[speakerId]) {
+        const data = speakersData[speakerId];
+
+        // Populate details
+        document.getElementById('page-title').textContent = `${data.name} Profile - The Mechatronic Arc`;
+        document.getElementById('meta-description').setAttribute('content', `Detailed speaker profile and talk details for ${data.name} at the workshop.`);
+        
+        const avatar = document.getElementById('speaker-avatar');
+        avatar.src = data.avatar;
+        avatar.alt = data.name;
+        
+        // Handle object positioning for specific images
+        if (speakerId === 'saveriano') {
+          avatar.style.objectPosition = '50% 60%';
+        }
+
+        document.getElementById('speaker-name').textContent = data.name;
+        document.getElementById('speaker-affiliation').textContent = data.affiliation;
+        
+        // Handle confirmation status tag
+        const statusTag = document.getElementById('speaker-status');
+        if (data.status) {
+          statusTag.textContent = data.status;
+          statusTag.style.display = 'inline-block';
+        } else {
+          statusTag.style.display = 'none';
+        }
+
+        document.getElementById('talk-title').textContent = data.title;
+        document.getElementById('talk-abstract').textContent = data.abstract;
+        document.getElementById('speaker-bio').textContent = data.bio;
+        
+        // Hide error and show profile
+        cardContainer.style.display = 'grid';
+        errorBox.style.display = 'none';
+      } else {
+        // Show error box, hide card
+        cardContainer.style.display = 'none';
+        errorBox.style.display = 'block';
+        document.getElementById('page-title').textContent = 'Speaker Not Found - The Mechatronic Arc';
+      }
+    });
+  </script>
+</body>
+</html>

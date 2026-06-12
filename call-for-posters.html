@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call for Posters - The Mechatronic Arc</title>
+  <meta name="description" content="Submit your abstract to the Call for Posters and Spotlight Presentations at The Mechatronic Arc workshop (AIM 2026). Deadline: July 1st, 2026.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #04142f;      /* Deep Navy Blue from main website */
+      --primary-hover: #104b7d;      /* Highlight/hover Blue */
+      --bg-light: #f1f7fc;           /* Light background */
+      --bg-white: #ffffff;
+      --text-default: #444444;       /* Default text color */
+      --text-muted: #666666;
+      --border-color: #bbd7f0;       /* Border/divider color */
+      --card-shadow: 0 10px 40px rgba(4, 20, 47, 0.06);
+      --card-shadow-hover: 0 15px 45px rgba(4, 20, 47, 0.12);
+      --accent-color: #e74c3c;       /* Red/Orange accent */
+      --success-color: #2ecc71;      /* Green accent */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-default);
+      background-color: var(--bg-light);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.minimal-header {
+      background-color: var(--primary-color);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      color: white;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.25s ease;
+    }
+
+    .logo-link:hover {
+      opacity: 0.85;
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--border-color);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 3rem 1.5rem;
+    }
+
+    .page-container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+    }
+
+    .back-btn-container {
+      margin-bottom: 2rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .back-btn:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(4, 20, 47, 0.1);
+    }
+
+    .back-btn svg {
+      transition: transform 0.25s ease;
+    }
+
+    .back-btn:hover svg {
+      transform: translateX(-4px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-section h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 0 0 1rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-section p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Info Cards Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 800px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background-color: var(--bg-white);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      padding: 2.5rem;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .info-card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .info-card h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-color);
+    }
+
+    .date-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .date-row:last-child {
+      border-bottom: none;
+    }
+
+    .date-label {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .date-value {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .date-value.deadline {
+      background-color: rgba(231, 76, 60, 0.08);
+      color: var(--accent-color);
+    }
+
+    .date-value.notification {
+      background-color: rgba(46, 204, 113, 0.08);
+      color: var(--success-color);
+    }
+
+    .info-text {
+      font-size: 1rem;
+      color: var(--text-default);
+      margin: 0 0 1rem 0;
+      text-align: justify;
+    }
+
+    /* Submission details / checklist */
+    .checklist-section {
+      background-color: var(--bg-white);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      padding: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .checklist-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 2rem 0;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .checklist-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .submission-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .submission-list li {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .submission-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 28px;
+      height: 28px;
+      background-color: rgba(46, 204, 113, 0.1);
+      color: var(--success-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .submission-list li strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Organizer Contacts Box */
+    .contacts-box {
+      background-color: #fafcfe;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contacts-box h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin: 0 0 1.25rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-email {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--primary-hover);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .contact-email:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .contact-email:hover {
+      color: var(--primary-color);
+    }
+
+    .contact-email svg {
+      color: var(--primary-color);
+    }
+
+    /* Visual CTA */
+    .cta-container {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 2px solid transparent;
+    }
+
+    .btn-submit:hover {
+      background: transparent;
+      border-color: #e74c3c;
+      color: #e74c3c;
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .btn-submit svg {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-submit:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Sub-sessions / Themes section */
+    .themes-section {
+      background-color: var(--bg-white);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      padding: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .themes-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 2rem 0;
+    }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .theme-card {
+      border: 1px solid var(--border-color);
+      background-color: #fafcfe;
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .theme-card:hover {
+      border-color: var(--primary-hover);
+      box-shadow: 0 6px 18px rgba(4, 20, 47, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .theme-num {
+      display: inline-block;
+      font-weight: 700;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.15rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .theme-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 1rem 0;
+      line-height: 1.3;
+    }
+
+    .tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .track-pill {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .track-pill.hw {
+      background-color: rgba(4, 20, 47, 0.05);
+      color: var(--primary-color);
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .track-pill.sw {
+      background-color: rgba(16, 75, 125, 0.08);
+      color: var(--primary-hover);
+      border-left: 3px solid var(--primary-hover);
+    }
+
+    .track-type {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.85;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: var(--bg-white);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="minimal-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link">
+        <span class="logo-dot"></span>
+        The Mechatronic Arc
+      </a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-container">
+      
+      <div class="back-btn-container">
+        <a href="index.html" class="back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Main
+        </a>
+      </div>
+
+      <div class="hero-section">
+        <h1>Call for Posters & Spotlight Talks</h1>
+        <p>We invite researchers, practitioners, and students to submit abstracts demonstrating their latest work bridging the gap between mechanical designs and computational algorithms.</p>
+      </div>
+
+      <!-- Dates & Guidelines Info Grid -->
+      <div class="info-grid">
+        <div class="info-card">
+          <h2>Important Dates</h2>
+          <div class="date-row">
+            <span class="date-label">Submission Deadline</span>
+            <span class="date-value deadline">July 1, 2026</span>
+          </div>
+          <div class="date-row">
+            <span class="date-label">Acceptance Notification</span>
+            <span class="date-value notification">Within 2 days of submission</span>
+          </div>
+          <div class="date-row">
+            <span class="date-label">Presentation Formats Announcement</span>
+            <span class="date-value" style="background-color: #f1f7fc; color: var(--primary-color);">July 1, 2026</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>Presentation Modalities</h2>
+          <p class="info-text">
+            All accepted abstracts will be showcased during the workshop. Depending on scheduling and reviews, the presentation format will be either:
+          </p>
+          <p class="info-text" style="font-weight: 500; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: var(--primary-hover);">🖨️</span> <strong>Poster Presentation</strong> (during the lunch break & poster session)
+          </p>
+          <p class="info-text" style="font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: var(--primary-hover);">⚡</span> <strong>Spotlight Session</strong> (a short talk with PowerPoint presentation, duration TBD)
+          </p>
+          <p class="info-text" style="font-size: 0.88rem; color: var(--text-muted); font-style: italic; margin-top: 1rem;">
+            The final presentation formats will be assigned and published on the workshop website on the day of the submission deadline (July 1, 2026).
+          </p>
+        </div>
+      </div>
+
+      <!-- Submission Guidelines Section -->
+      <div class="checklist-section">
+        <h2>How to Submit</h2>
+        <div class="checklist-grid">
+          <div>
+            <p class="info-text" style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+              Please prepare a <strong>one-page abstract</strong> formatted in PDF describing your work. Submissions must be sent strictly before the deadline on July 1, 2026.
+            </p>
+            <ul class="submission-list">
+              <li>
+                <strong>One-page Abstract</strong>
+                Ensure the PDF file is attached to your application email.
+              </li>
+              <li>
+                <strong>Sub-session / Workshop Theme</strong>
+                Indicate which theme/sub-session your paper belongs to (e.g. <em>Sensing-Hardware</em>, <em>Sensing-Software</em>).
+              </li>
+              <li>
+                <strong>Presenting Author</strong>
+                Include the full name of the author who will present the poster or spotlight talk.
+              </li>
+            </ul>
+
+            <div class="cta-container">
+              <a href="mailto:raffaella.mancino@edu.unige.it,paolino.derisi@unina.it?subject=Call%20for%20Posters%20Submission%20-%20The%20Mechatronic%20Arc&body=Dear%20Organizers%2C%0A%0AI%20would%20like%20to%20submit%20our%20work%20for%20the%20Call%20for%20Posters%20%26%20Spotlight%20presentations.%0A%0APresenting%20Author%3A%20%5BInsert%20Author%20Name%20Here%5D%0AWorkshop%20Sub-session%3A%20%5BInsert%20Sub-session%20Name%20Here%2C%20e.g.%20Sensing-Hardware%5D%0A%0APlease%20find%20attached%20our%20one-page%20abstract.%0A%0ABest%20regards%2C%0A%5BInsert%20Your%20Name%5D" class="btn-submit">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Submit Proposal by Email
+              </a>
+            </div>
+          </div>
+
+          <div class="contacts-box">
+            <h3>Submission Emails</h3>
+            <p class="info-text" style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
+              All entries must be sent to both workshop coordinators:
+            </p>
+            <a href="mailto:raffaella.mancino@edu.unige.it" class="contact-email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              raffaella.mancino@edu.unige.it
+            </a>
+            <a href="mailto:paolino.derisi@unina.it" class="contact-email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              paolino.derisi@unina.it
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-sessions & Themes list -->
+      <div class="themes-section">
+        <h2>Workshop Sub-sessions & Themes</h2>
+        <p class="info-text" style="margin-bottom: 2rem; font-size: 1.05rem;">
+          Your abstract must address one of the following workshop sub-sessions:
+        </p>
+        <div class="themes-grid">
+          
+          <div class="theme-card">
+            <span class="theme-num">Session 1</span>
+            <h3>Sensing</h3>
+            <div class="tracks">
+              <div class="track-pill hw">
+                <span>Physical Transduction</span>
+                <span class="track-type">Hardware</span>
+              </div>
+              <div class="track-pill sw">
+                <span>Virtual Estimation</span>
+                <span class="track-type">Software</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="theme-card">
+            <span class="theme-num">Session 2</span>
+            <h3>Actuation</h3>
+            <div class="tracks">
+              <div class="track-pill hw">
+                <span>Intrinsic Compliance</span>
+                <span class="track-type">Hardware</span>
+              </div>
+              <div class="track-pill sw">
+                <span>Variable Impedance</span>
+                <span class="track-type">Software</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="theme-card">
+            <span class="theme-num">Session 3</span>
+            <h3>Safety</h3>
+            <div class="tracks">
+              <div class="track-pill hw">
+                <span>Mechanical Design</span>
+                <span class="track-type">Hardware</span>
+              </div>
+              <div class="track-pill sw">
+                <span>Algorithmic Supervision</span>
+                <span class="track-type">Software</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="theme-card">
+            <span class="theme-num">Session 4</span>
+            <h3>Body</h3>
+            <div class="tracks">
+              <div class="track-pill hw">
+                <span>Robot Co-Designing</span>
+                <span class="track-type">Hardware</span>
+              </div>
+              <div class="track-pill sw">
+                <span>Redundancy & Planning</span>
+                <span class="track-type">Software</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="theme-card">
+            <span class="theme-num">Session 5</span>
+            <h3>Rehabilitation</h3>
+            <div class="tracks">
+              <div class="track-pill hw">
+                <span>Exoskeleton & Interface</span>
+                <span class="track-type">Hardware</span>
+              </div>
+              <div class="track-pill sw">
+                <span>Intention-Decoding</span>
+                <span class="track-type">Software</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 The Mechatronic Arc Workshop. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mechatronic Arc: Bridging the Gap Between Physical Design and Computational Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #04142f;      /* Deep Navy Blue from aim2026.com */
+      --primary-hover: #104b7d;      /* Highlight/hover Blue from aim2026.com */
+      --bg-light: #f1f7fc;           /* Light background from aim2026.com */
+      --bg-white: #ffffff;
+      --text-default: #444444;       /* Default text color from aim2026.com */
+      --border-color: #bbd7f0;       /* Border/divider color from aim2026.com */
+      --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      --card-shadow-hover: 0 12px 35px rgba(4, 20, 47, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-default);
+      background-color: var(--bg-white);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(4, 20, 47, 0.75), rgba(4, 20, 47, 0.75)),
+                  url('assets/venue-genova.png') center/cover no-repeat;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin: 1.5rem 0;
+      color: #e0e0e0;
+      max-width: 800px;
+    }
+
+    .info {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #f1f7fc;
+    }
+
+    .nav-buttons {
+      margin-top: 2.5rem;
+    }
+
+    .nav-buttons a {
+      display: inline-block;
+      background-color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      margin: 0.5rem;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .nav-buttons a:hover {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    section {
+      padding: 5rem 0;
+      width: 100%;
+      scroll-margin-top: 2rem;
+    }
+
+    .section-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      box-sizing: border-box;
+    }
+
+    /* Alternating section backgrounds */
+    #organizers, #program {
+      background-color: var(--bg-light);
+    }
+
+    section h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    section h3::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background-color: var(--primary-hover);
+      margin: 0.75rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Cards Layouts */
+    .speakers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .organizers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 868px) {
+      .organizers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .organizers {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .organizer-card {
+      background-color: var(--bg-white);
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .organizer-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .speaker-card {
+      background-color: var(--bg-light);
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid transparent;
+      box-shadow: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .speaker-card-link:hover .speaker-card {
+      background-color: var(--bg-white);
+      border-color: var(--primary-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .speaker-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .speaker-card img, .organizer-card img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .speaker-card img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .speaker-card-link:hover .speaker-card img {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(4, 20, 47, 0.12);
+    }
+
+    .read-bio-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 1.2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--primary-hover);
+      transition: color 0.25s ease;
+    }
+
+    .speaker-card-link:hover .read-bio-link {
+      color: var(--primary-color);
+    }
+
+    .read-bio-link::after {
+      content: '→';
+      transition: transform 0.25s ease;
+      font-weight: 700;
+    }
+
+    .speaker-card-link:hover .read-bio-link::after {
+      transform: translateX(4px);
+    }
+
+    .organizer-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+    }
+
+    .speaker-card strong, .organizer-card strong {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .speaker-card em, .organizer-card em {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Program Table Styling */
+    .program-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--bg-white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .program-table th {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .program-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 1rem;
+    }
+
+    .program-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .program-table tr:nth-child(even) {
+      background-color: #fbfdff;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0;
+    }
+
+    footer {
+      background-color: var(--bg-white);
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 1rem;
+    }
+
+    /* 2-Act Layout in About Section */
+    .acts-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .acts-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    .act-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .act-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--primary-hover);
+    }
+    .act-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(16, 75, 125, 0.2);
+    }
+    .act-card h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 1.2rem 0;
+      line-height: 1.3;
+    }
+    .act-card p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--text-default);
+      margin: 0 0 1.2rem 0;
+      text-align: justify;
+    }
+    .act-card p:last-of-type {
+      margin-bottom: 2rem;
+    }
+    .act-sessions-list {
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+    }
+    .act-sessions-list h5 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 1rem 0;
+    }
+    .about-session-link {
+      display: flex;
+      align-items: center;
+      background-color: var(--bg-light);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.75rem;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: all 0.25s ease;
+    }
+    .about-session-link:last-child {
+      margin-bottom: 0;
+    }
+    .about-session-link:hover {
+      background-color: var(--bg-white);
+      border-color: var(--primary-hover);
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(4, 20, 47, 0.05);
+    }
+    .about-session-link .session-num {
+      font-weight: 700;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      margin-right: 0.75rem;
+      white-space: nowrap;
+      transition: background-color 0.25s ease;
+    }
+    .about-session-link:hover .session-num {
+      background-color: var(--primary-hover);
+    }
+    .about-session-link .session-title {
+      line-height: 1.3;
+    }
+
+    /* Timetable Improvements with Liquid Retina styles */
+    .program-table tbody tr {
+      transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .program-table tbody tr:hover:not(.table-act-header):not(.session-details-row) {
+      background-color: rgba(16, 75, 125, 0.04) !important;
+      transform: scale(1.005);
+      box-shadow: 0 4px 15px rgba(4, 20, 47, 0.05);
+    }
+    .table-act-header {
+      background-color: var(--primary-color);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .table-act-header td {
+      padding: 14px 20px !important;
+      color: white !important;
+      border: none !important;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+    .session-row {
+      cursor: pointer;
+    }
+    .session-row.open-row {
+      background-color: rgba(16, 75, 125, 0.02) !important;
+    }
+    .session-name {
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 1.05rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .timetable-session-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      width: 100%;
+    }
+    .timetable-session-link:hover {
+      color: var(--primary-hover);
+    }
+    .chevron-icon {
+      font-size: 0.75rem;
+      margin-left: 10px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      color: var(--primary-hover);
+      display: inline-block;
+    }
+    .session-row.open-row .chevron-icon {
+      transform: rotate(180deg);
+    }
+    .session-speakers-summary {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Expandable Session Details Drawer */
+    .session-details-row {
+      display: none;
+      background-color: #fafcfe !important;
+    }
+    .session-details-row.open {
+      display: table-row;
+    }
+    .session-details-row td {
+      padding: 0 !important; /* reset padding to let content control collapse transition */
+      border-bottom: 1px solid var(--border-color);
+    }
+    .row-details-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0 24px;
+      box-sizing: border-box;
+      transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease, padding 0.4s ease;
+    }
+    .details-desc h5 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+    }
+    .details-desc p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-default);
+      margin: 0 0 1.5rem 0;
+      text-align: justify;
+    }
+    
+    .details-speakers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .details-speakers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .details-speaker-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+    }
+    .details-speaker-card:hover {
+      border-color: var(--primary-hover);
+      box-shadow: 0 6px 18px rgba(4, 20, 47, 0.06);
+      transform: translateY(-2px);
+    }
+    .perspective-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .perspective-badge.hw {
+      background-color: rgba(4, 20, 47, 0.06);
+      color: var(--primary-color);
+    }
+    .perspective-badge.sw {
+      background-color: rgba(16, 75, 125, 0.08);
+      color: var(--primary-hover);
+    }
+    .speaker-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--primary-color);
+      margin: 0 0 0.4rem 0;
+    }
+    .presentation-title {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--text-default);
+      margin: 0 0 0.75rem 0;
+      line-height: 1.4;
+    }
+    .presentation-duration {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Break Badges & Liquid Retina rows */
+    .break-badge, .lunch-badge, .delay-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .break-badge {
+      background-color: #eaf6ff;
+      color: var(--primary-hover);
+    }
+    .lunch-badge {
+      background-color: #eafaf1;
+      color: #2ecc71;
+    }
+    .delay-badge {
+      background-color: #fff9e6;
+      color: #f39c12;
+    }
+    .special-row td {
+      vertical-align: middle;
+    }
+
+    /* Pulsing Badge & Call for Posters styling */
+    .announcement-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    .announcement-badge:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    }
+    
+    .badge-pulse {
+      width: 9px;
+      height: 9px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+      margin-right: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .badge-pulse::after {
+      content: '';
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+      animation: pulse 1.6s infinite;
+      top: 0;
+      left: 0;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2.8);
+        opacity: 0;
+      }
+    }
+    
+    .nav-buttons a.nav-call-for-posters {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+    
+    .nav-buttons a.nav-call-for-posters:hover {
+      background: transparent;
+      border-color: #e74c3c;
+      color: #e74c3c;
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.1rem !important;
+        padding: 0 1rem;
+      }
+      h2 {
+        font-size: 1.25rem !important;
+        margin: 1.2rem 0 !important;
+        padding: 0 1rem;
+      }
+      header {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 3.5rem 1.5rem !important;
+      }
+      .nav-buttons a {
+        padding: 0.6rem 1.1rem !important;
+        font-size: 0.88rem !important;
+        margin: 0.25rem !important;
+      }
+    }
+
+    /* AIM 2026 Conjunction Card Styles */
+    .aim-context-card {
+      display: flex;
+      align-items: center;
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      gap: 2rem;
+      box-shadow: var(--card-shadow);
+      text-align: left;
+    }
+    
+    .aim-logo-small {
+      height: 70px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    
+    .aim-context-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-default);
+      margin: 0;
+    }
+    
+    .aim-context-text a {
+      color: var(--primary-hover);
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    
+    .aim-context-text a:hover {
+      color: var(--primary-color);
+    }
+    
+    @media (max-width: 600px) {
+      .aim-context-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+        padding: 1.5rem;
+      }
+      .aim-logo-small {
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    
+    <a href="call-for-posters.html" class="announcement-badge">
+      <span class="badge-pulse"></span> Call for Posters is Open! Submit by July 1st
+    </a>
+
+    <h1>The Mechatronic Arc:</h1>
+    <h2>Bridging the Gap Between Physical Design and Computational Intelligence</h2>
+    <div class="info">📅 July 7, 2026 &nbsp;|&nbsp; 📍 Porto Antico, Magazzini del cotone
+Genova (Italy)</div>
+    <div class="nav-buttons">
+      <a href="#about">About</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#program">Program</a>
+      <a href="call-for-posters.html" class="nav-call-for-posters">Call for Posters</a>
+    </div>
+  </header>
+
+  <section id="about" style="text-align: justify;">
+    <div class="section-container">
+      <h3>About the Workshop</h3>
+
+      <!-- AIM 2026 Conjunction Banner -->
+      <div class="aim-context-card">
+        <img src="assets/aim_logo.png" alt="AIM 2026 Logo" class="aim-logo-small">
+        <p class="aim-context-text">
+          This workshop is organized in conjunction with the <strong>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM 2026)</strong>, which will be held in Genova, Italy, from July 7th to 10th, 2026. For registration and details about the main conference, please visit the official <a href="https://aim2026.com/" target="_blank" rel="noopener noreferrer">AIM 2026 Website</a>.
+        </p>
+      </div>
+
+      <p>The design philosophy underlying modern robotics is not monolithic; rather, it evolves dynamically in relation to the scale and complexity of the problem addressed. Advanced robotic systems rely on a continuous dialogue between their <strong>physical embodiment</strong> and their <strong>algorithmic intelligence</strong>. On one hand, intelligence does not reside solely in software but is encoded within the robot’s mechanics—a form of <em>Embodied Intelligence</em> that defines intrinsic capabilities in perception, action, and safety. On the other hand, the <em>Algorithmic Intelligence</em> of software expands these abilities, enabling versatility and complex behaviors that cannot be realized through matter alone.</p>
+
+      <p>In robotics, a fundamental dichotomy is often faced: <strong>should a specific function be delegated to the hardware or to the software?</strong></p>
+
+      <p>This workshop proposes to explore this duality by tracing a <strong>"Mechatronic Arc,"</strong> a narrative path that guides participants from a paradigm of component-level trade-offs to one of system-level synthesis. By fostering a direct comparison between leading researchers who approach similar challenges from opposing paradigms, the workshop is structured into two distinct Acts:</p>
+
+      <!-- Liquid Retina 2-Act Layout -->
+      <div class="acts-container">
+        <!-- Act I Card -->
+        <div class="act-card">
+          <div class="act-badge">Act I</div>
+          <h4>The Functional Dichotomy – Matter vs. Math</h4>
+          <p>In the realm of component design, the engineer is frequently tasked with selecting the optimal tool for a singular purpose. This section investigates the functional trade-offs where physical laws and control laws compete for supremacy, debating whether the task is better achieved through material properties or mathematical models.</p>
+          <p>We will analyze how contact perception can be achieved through dedicated sensorization versus software estimators; how compliance can be an intrinsic material property versus a control-simulated behavior; and how safety can be guaranteed by passive mechanical constraints versus active algorithmic barriers.</p>
+          
+          <div class="act-sessions-list">
+            <h5>Sessions in Act I:</h5>
+            <a href="#program" class="about-session-link" data-session="s1">
+              <span class="session-num">Session 1</span>
+              <span class="session-title">Sensing – Physical Transduction vs. Virtual Estimation</span>
+            </a>
+            <a href="#program" class="about-session-link" data-session="s2">
+              <span class="session-num">Session 2</span>
+              <span class="session-title">Actuation – Intrinsic Compliance vs. Variable Impedance</span>
+            </a>
+            <a href="#program" class="about-session-link" data-session="s3">
+              <span class="session-num">Session 3</span>
+              <span class="session-title">Safety – Mechanical Design vs. Algorithmic Supervision</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Act II Card -->
+        <div class="act-card">
+          <div class="act-badge">Act II</div>
+          <h4>The Necessary Symbiosis – When Bodies and Controllers Co-Evolve</h4>
+          <p>Transitioning to high-complexity systems, the separation between “controller” and “plant” becomes an obstacle rather than a design choice. This section illustrates that for sophisticated robots—and especially for human-centered mechatronic devices—intelligence cannot simply be programmed “into” a machine but must be physically grounded “within” its morphology and interfaces.</p>
+          <p>By examining robot body co-design and rehabilitation/assistive robotics, it becomes evident that the most ambitious challenges cannot be solved by choosing between hardware and software, but only through their profound symbiosis. In these domains, mechanical architecture, physical coupling, and control policies must evolve jointly.</p>
+          
+          <div class="act-sessions-list">
+            <h5>Sessions in Act II:</h5>
+            <a href="#program" class="about-session-link" data-session="s4">
+              <span class="session-num">Session 4</span>
+              <span class="session-title">Body – Co-Designing Robots</span>
+            </a>
+            <a href="#program" class="about-session-link" data-session="s5">
+              <span class="session-num">Session 5</span>
+              <span class="session-title">Rehab – The Human–Machine Symbiosis</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="organizers">
+    <div class="section-container">
+      <h3>Organizers</h3>
+      <div class="organizers">
+        <div class="organizer-card">
+          <img src="assets/organizers/mancino.jpg" alt="Raffaella Mancino" style="object-position: 50% 30%;">
+          <div>
+            <strong>Raffaella Mancino</strong>
+            <em>Università degli Studi di Genova<br> Università degli Studi di Napoli Federico II</em>
+          </div>
+        </div>
+        
+        <div class="organizer-card">
+          <img src="assets/organizers/derisi.jpeg" alt="Paolino De Risi">
+          <div>
+            <strong>Paolino De Risi</strong>
+            <em>Università degli Studi di Napoli Federico II</em>
+          </div>
+        </div>
+        
+        <div class="organizer-card">
+          <img src="assets/organizers/ficuciello.png" alt="Fanny Ficuciello">
+          <div>
+            <strong>Fanny Ficuciello</strong>
+            <em>Università degli Studi di Napoli Federico II</em>
+          </div>
+        </div>
+        
+        <div class="organizer-card">
+          <img src="assets/organizers/berselli.jpg" alt="Giovanni Berselli">
+          <div>
+            <strong>Giovanni Berselli</strong>
+            <em>Università degli Studi di Genova<br>Istituto Italiano di Tecnologia</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="speakers">
+    <div class="section-container">
+      <h3>Speakers</h3>
+      <div class="speakers">
+        <a href="speaker.html?id=tba" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/placeholder.png" alt="To be announced">
+            <strong>To be announced</strong>
+            TBD
+            <em>Biography and talk details will be announced soon.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=masiero" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/masiero.jpg" alt="Federico Masiero">
+            <strong>Federico Masiero</strong>
+            Technical University of Munich
+            <em>His research focuses on wearable robotics, physical human-robot interaction (pHRI), and using soft magnetic sensors to transduce human motion.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=garabini" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/garabini.jpg" alt="Manolo Garabini">
+            <strong>Manolo Garabini</strong>
+            Università di Pisa
+            <em>His research centers on the design, planning, and control of soft adaptive robots, variable stiffness actuators, and collaborative humanoid joints.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=saveriano" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/saveriano.jpg" alt="Matteo Saveriano" style="object-position: 50% 60%;">
+            <strong>Matteo Saveriano</strong>
+            Università di Trento
+            <em>His research integrates cognitive robots into factories and social environments, focusing on safe human-robot interaction and learning from demonstration.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=khatib" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/Khatib.jpg" alt="Oussama Khatib">
+            <strong>Oussama Khatib <span style="font-size: 0.9rem; font-weight: normal; color: #e74c3c;">(to be confirmed)</span></strong>
+            Stanford University
+            <em>A pioneer in robotics, his research focuses on human-centered robotics, advanced control architectures, and deep-sea robotic exploration.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=fisac" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/fernandez_fisac.jpg" alt="Jaime Fernández Fisac">
+            <strong>Jaime Fernández Fisac</strong>
+            Princeton University
+            <em>His research focuses on safe robotics, control systems, game theory, and artificial intelligence to assure safety around humans in real-world settings.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=russo" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/russo.jpg" alt="Matteo Russo">
+            <strong>Matteo Russo</strong>
+            Università di Roma Tor Vergata
+            <em>His research involves the design and modeling of continuum and soft robots for minimally invasive surgery and high-performance mechanism optimization.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=trumic" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/trumic.jpg" alt="Maja Trumić">
+            <strong>Maja Trumić</strong>
+            Delft University of Technology
+            <em>Her research centers on control systems for articulated soft robots, variable stiffness actuators, and nonlinear adaptive control theory.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=trigili" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/trigili.jpg" alt="Emilio Trigili">
+            <strong>Emilio Trigili</strong>
+            Scuola Superiore Sant'Anna
+            <em>His research is centered on wearable and rehabilitation robotics, specializing in exoskeleton design, control, and human intention-decoding.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+        <a href="speaker.html?id=tessari" class="speaker-card-link">
+          <div class="speaker-card">
+            <img src="assets/speakers/tessari.jpg" alt="Federico Tessari">
+            <strong>Federico Tessari <span style="font-size: 0.9rem; font-weight: normal; color: #e74c3c;">(to be confirmed)</span></strong>
+            Massachusetts Institute of Technology
+            <em>His research bridges rehabilitation robotics and motor neuroscience, investigating human motor coordination and custom electro-hydrostatic actuating units.</em>
+            <div class="read-bio-link">View Profile & Abstract</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="program">
+    <div class="section-container">
+      <h3>Program Timetable</h3>
+      <div style="max-width: 850px; margin: 0 auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table class="program-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Time</th>
+              <th style="width: 65%;">Session / Activity</th>
+              <th style="width: 15%;">Slot Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Act I Section Header -->
+            <tr class="table-act-header">
+              <td colspan="3">Act I: The Functional Dichotomy - Matter vs. Math</td>
+            </tr>
+            <tr>
+              <td><strong>11:15 – 11:25</strong></td>
+              <td>
+                <div class="session-name">Welcome &amp; Introduction</div>
+                <div class="session-sub">The Mechatronic Arc: Bridging the Gap Between Physical Design and Computational Intelligence</div>
+              </td>
+              <td>10 min</td>
+            </tr>
+            
+            <!-- Session 1 Row -->
+            <tr class="session-row" id="row-s1">
+              <td><strong>11:25 – 12:10</strong></td>
+              <td>
+                <div class="session-name">
+                  <a href="javascript:void(0)" class="timetable-session-link" data-session="s1">
+                    <span>Session 1: Sensing - Physical Transduction vs. Virtual Estimation</span>
+                    <span class="chevron-icon">▼</span>
+                  </a>
+                </div>
+                <div class="session-speakers-summary">To be announced | F. Masiero &nbsp;&nbsp;(Click to view details)</div>
+              </td>
+              <td>45 min</td>
+            </tr>
+            <tr class="session-details-row" id="details-s1">
+              <td colspan="3">
+                <div class="row-details-content">
+                  <div class="details-desc">
+                    <h5>Session Overview</h5>
+                    <p>This session questions the necessity of complex hardware for perception. On one side, the Embodied Sensing approach advocates for the integration of dedicated, high-fidelity sensory hardware—such as distributed tactile surfaces or specialized force/torque sensors—to grant robots a direct, physical sensitivity to their environment. On the opposing side, the Algorithmic Sensing perspective champions the use of advanced observers and data-driven techniques to transform the robot’s existing actuation system into a "virtual sensor." This approach focuses on estimating external forces and contacts through proprioception and mathematical models, eliminating the need for additional, often fragile, instrumentation.</p>
+                  </div>
+                  <div class="details-speakers-grid">
+                    <div class="details-speaker-card hw">
+                      <div class="perspective-badge hw">Hardware (HW)</div>
+                      <h6 class="speaker-name">To be announced</h6>
+                      <p class="presentation-title">“TBD (to be defined)”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                    <div class="details-speaker-card sw">
+                      <div class="perspective-badge sw">Software (SW)</div>
+                      <h6 class="speaker-name">Federico Masiero</h6>
+                      <p class="presentation-title">“Magnetic Sensing for Human-Robot Interaction”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="special-row">
+              <td><strong>12:10 – 12:15</strong></td>
+              <td><span class="delay-badge">Seating / Transition Delay</span></td>
+              <td>5 min</td>
+            </tr>
+
+            <!-- Session 2 Row -->
+            <tr class="session-row" id="row-s2">
+              <td><strong>12:15 – 13:00</strong></td>
+              <td>
+                <div class="session-name">
+                  <a href="javascript:void(0)" class="timetable-session-link" data-session="s2">
+                    <span>Session 2: Actuation - Intrinsic Compliance vs. Variable Impedance</span>
+                    <span class="chevron-icon">▼</span>
+                  </a>
+                </div>
+                <div class="session-speakers-summary">M. Garabini | M. Saveriano &nbsp;&nbsp;(Click to view details)</div>
+              </td>
+              <td>45 min</td>
+            </tr>
+            <tr class="session-details-row" id="details-s2">
+              <td colspan="3">
+                <div class="row-details-content">
+                  <div class="details-desc">
+                    <h5>Session Overview</h5>
+                    <p>Adaptability to the environment is crucial, but where should it originate? The Passive Compliance perspective focuses on designing actuation systems with intrinsic elasticity—ranging from soft fluidic actuators to mechanically variable stiffness mechanisms. In this view, compliance is a physical property inherent to the device, ensuring passive safety and energy efficiency at the source. In contrast, the Active Compliance approach (Variable Impedance Control) relies on stiff, high-bandwidth actuators governed by control loops that simulate virtual springs and dampers, offering programmable versatility that allows the robot's behavior to be radically altered without mechanical modification.</p>
+                  </div>
+                  <div class="details-speakers-grid">
+                    <div class="details-speaker-card hw">
+                      <div class="perspective-badge hw">Hardware (HW)</div>
+                      <h6 class="speaker-name">Manolo Garabini</h6>
+                      <p class="presentation-title">“Soft is Nothing Without Control”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                    <div class="details-speaker-card sw">
+                      <div class="perspective-badge sw">Software (SW)</div>
+                      <h6 class="speaker-name">Matteo Saveriano</h6>
+                      <p class="presentation-title">“The Role of Energy and Geometry in Contact-Rich Manipulation”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="special-row">
+              <td><strong>13:00 – 14:00</strong></td>
+              <td><span class="lunch-badge">🍽️ Lunch Break &amp; Poster Session</span></td>
+              <td>60 min</td>
+            </tr>
+
+            <!-- Session 3 Row -->
+            <tr class="session-row" id="row-s3">
+              <td><strong>14:00 – 14:45</strong></td>
+              <td>
+                <div class="session-name">
+                  <a href="javascript:void(0)" class="timetable-session-link" data-session="s3">
+                    <span>Session 3: Safety - Mechanical Design vs. Algorithmic Supervision</span>
+                    <span class="chevron-icon">▼</span>
+                  </a>
+                </div>
+                <div class="session-speakers-summary">O. Khatib (to be confirmed) | J. F. Fisac &nbsp;&nbsp;(Click to view details)</div>
+              </td>
+              <td>45 min</td>
+            </tr>
+            <tr class="session-details-row" id="details-s3">
+              <td colspan="3">
+                <div class="row-details-content">
+                  <div class="details-desc">
+                    <h5>Session Overview</h5>
+                    <p>When humans and robots share space, safety is non-negotiable. The Passive Safety perspective emphasizes intrinsic mechanism design, advocating for lightweight structures, mechanical joint limits, and impact-mitigating geometries. This philosophy relies on physical constraints to ensure that injury is physically impossible or drastically mitigated, providing a fail-safe layer that persists even in the event of a total control failure. Conversely, the Active Safety approach employs formal methods and real-time algorithmic filters (such as control barrier functions, reachable set analysis or safety filters). This methodology wraps the system in a "mathematical safety shield," allowing high-performance hardware to operate aggressively while providing certifiable guarantees that unsafe states remain unreachable via continuous software monitoring.</p>
+                  </div>
+                  <div class="details-speakers-grid">
+                    <div class="details-speaker-card hw">
+                      <div class="perspective-badge hw">Hardware (HW)</div>
+                      <h6 class="speaker-name">Oussama Khatib (to be confirmed)</h6>
+                      <p class="presentation-title">“TBD (to be defined)”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                    <div class="details-speaker-card sw">
+                      <div class="perspective-badge sw">Software (SW)</div>
+                      <h6 class="speaker-name">Jaime Fernández Fisac</h6>
+                      <p class="presentation-title">“Safety through Intelligence: How AI and Control Theory Help Robots Preempt Harm”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>14:45 – 15:05</strong></td>
+              <td>
+                <div class="session-name">Roundtable Act I</div>
+                <div class="session-sub">Act I: The Functional Dichotomy - Matter vs. Math</div>
+              </td>
+              <td>20 min</td>
+            </tr>
+            <tr class="special-row">
+              <td><strong>15:05 – 15:10</strong></td>
+              <td><span class="delay-badge">Seating / Transition Delay</span></td>
+              <td>5 min</td>
+            </tr>
+
+            <!-- Session 4 Row -->
+            <tr class="session-row" id="row-s4">
+              <td><strong>15:10 – 16:00</strong></td>
+              <td>
+                <div class="session-name">
+                  <a href="javascript:void(0)" class="timetable-session-link" data-session="s4">
+                    <span>Session 4: Body - Co-Designing Robots</span>
+                    <span class="chevron-icon">▼</span>
+                  </a>
+                </div>
+                <div class="session-speakers-summary">M. Russo | M. Trumić &nbsp;&nbsp;(Click to view details)</div>
+              </td>
+              <td>50 min</td>
+            </tr>
+            <tr class="session-details-row" id="details-s4">
+              <td colspan="3">
+                <div class="row-details-content">
+                  <div class="details-desc">
+                    <h5>Session Overview</h5>
+                    <p>In high-dimensional robots such as soft robots, the distinction between the "plant" and the "controller" becomes blurred. The Hardware Perspective focuses on advanced mechatronic architecture, illustrating how the physical design—including mass distribution, kinematic structure, actuator placement and mechanical stiffness—fundamentally shapes the robot's capabilities and pre-defines the solution space for the control problem. Complementing this, the Software Perspective focuses on high-level controllers such as data-driven (soft robots) or whole-body control (humanoids and quadrupeds) and planning, demonstrating how algorithms must orchestrate the massive kinematic and dynamic redundancy provided by the hardware to achieve robust locomotion, balance, and manipulation in unstructured environments.</p>
+                  </div>
+                  <div class="details-speakers-grid">
+                    <div class="details-speaker-card hw">
+                      <div class="perspective-badge hw">Hardware (HW)</div>
+                      <h6 class="speaker-name">Matteo Russo</h6>
+                      <p class="presentation-title">“Robot design: Reclaiming hardware in the age of AI”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                    <div class="details-speaker-card sw">
+                      <div class="perspective-badge sw">Software (SW)</div>
+                      <h6 class="speaker-name">Maja Trumić</h6>
+                      <p class="presentation-title">“Tackling control challenges in soft robotics through model-based approaches”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="special-row">
+              <td><strong>16:00 – 16:30</strong></td>
+              <td><span class="break-badge">☕ Afternoon Coffee Break</span></td>
+              <td>30 min</td>
+            </tr>
+
+            <!-- Act II Section Header -->
+            <tr class="table-act-header">
+              <td colspan="3">Act II: The Necessary Symbiosis - When Bodies and Controllers Co-Evolve</td>
+            </tr>
+
+            <!-- Session 5 Row -->
+            <tr class="session-row" id="row-s5">
+              <td><strong>16:30 – 17:20</strong></td>
+              <td>
+                <div class="session-name">
+                  <a href="javascript:void(0)" class="timetable-session-link" data-session="s5">
+                    <span>Session 5: Rehab - The Human–Machine Symbiosis</span>
+                    <span class="chevron-icon">▼</span>
+                  </a>
+                </div>
+                <div class="session-speakers-summary">E. Trigili | F. Tessari (to be confirmed) &nbsp;&nbsp;(Click to view details)</div>
+              </td>
+              <td>50 min</td>
+            </tr>
+            <tr class="session-details-row" id="details-s5">
+              <td colspan="3">
+                <div class="row-details-content">
+                  <div class="details-desc">
+                    <h5>Session Overview</h5>
+                    <p>The final session addresses the ultimate integration: the merging of robotic systems with the human body. In rehabilitation and assistive robotics, hardware and software must not only coexist but cooperate intimately with a biological partner, where the human becomes an integral component of the system dynamics. The Hardware Perspective focuses on the mechatronic design of exoskeletons and prosthetic devices. It argues that the physical interface—including kinematic compatibility, back-drivability, compliance, and ergonomic actuation—is a primary determinant of interaction quality. Here, “intelligence” is embodied in the mechanism’s ability to be transparent or supportive through its physical structure, providing an intrinsic baseline of safety and usability even under imperfect control. Conversely, the Software Perspective centers on Human-in-the-Loop control and intention estimation. This approach tackles the algorithmic challenge of inferring the user’s intent (via EMG, EEG, or interaction forces) and modulating assistance in real time (“assistance-as-needed”).</p>
+                  </div>
+                  <div class="details-speakers-grid">
+                    <div class="details-speaker-card hw">
+                      <div class="perspective-badge hw">Hardware (HW)</div>
+                      <h6 class="speaker-name">Emilio Trigili</h6>
+                      <p class="presentation-title">“Human-robot interaction in exoskeletons: from mechanical design to intention-aware control”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                    <div class="details-speaker-card sw">
+                      <div class="perspective-badge sw">Software (SW)</div>
+                      <h6 class="speaker-name">Federico Tessari (to be confirmed)</h6>
+                      <p class="presentation-title">“TBD (to be defined)”</p>
+                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>17:20 – 17:45</strong></td>
+              <td>
+                <div class="session-name">Roundtable Act II</div>
+                <div class="session-sub">Act II: The Necessary Symbiosis - When Bodies and Controllers Co-Evolve</div>
+              </td>
+              <td>25 min</td>
+            </tr>
+            <tr>
+              <td><strong>17:45 – 18:00</strong></td>
+              <td>
+                <div class="session-name">Closing Remarks</div>
+                <div class="session-sub">Wrap-up and farewells</div>
+              </td>
+              <td>15 min</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; max-width: 1000px; margin: 0 auto;">
+      <img src="assets/loghi/uninalogo.jpg" alt="UNINA" style="height: 80px; object-fit: contain;">
+      <img src="assets/loghi/b2r.png" alt="B2R" style="height: 60px; object-fit: contain;">
+      <img src="assets/loghi/icaros.png" alt="ICAROS" style="height: 60px; object-fit: contain;">
+      <img src="assets/loghi/iit.png" alt="IIT" style="height: 80px; object-fit: contain;">
+      <img src="assets/loghi/unige.png" alt="UNIGE" style="height: 80px; object-fit: contain;">
+      <img src="assets/loghi/mcae.png" alt="MCAE Lab" style="height: 70px; object-fit: contain;">
+    </div>
+  </footer>
+  
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sessionRows = document.querySelectorAll('.session-row');
+      const detailsRows = document.querySelectorAll('.session-details-row');
+
+      // Helper to close all sessions with slide animation
+      const closeAllSessions = () => {
+        sessionRows.forEach(row => row.classList.remove('open-row'));
+        detailsRows.forEach(detailsRow => {
+          if (detailsRow.classList.contains('open')) {
+            const content = detailsRow.querySelector('.row-details-content');
+            content.style.maxHeight = '0px';
+            content.style.opacity = '0';
+            setTimeout(() => {
+              detailsRow.classList.remove('open');
+            }, 400);
+          }
+        });
+      };
+
+      // Helper to expand a specific session row
+      const expandSession = (sessionId) => {
+        closeAllSessions();
+        const row = document.getElementById(`row-${sessionId}`);
+        const detailsRow = document.getElementById(`details-${sessionId}`);
+        if (!row || !detailsRow) return;
+
+        row.classList.add('open-row');
+        detailsRow.classList.add('open');
+
+        const content = detailsRow.querySelector('.row-details-content');
+        // Force browser layout reflow
+        content.offsetHeight;
+        content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+        content.style.opacity = '1';
+      };
+
+      // Toggle state helper
+      const toggleSession = (sessionId) => {
+        const row = document.getElementById(`row-${sessionId}`);
+        if (row && row.classList.contains('open-row')) {
+          closeAllSessions();
+        } else {
+          expandSession(sessionId);
+        }
+      };
+
+      // Add click listeners to session rows
+      sessionRows.forEach(row => {
+        row.addEventListener('click', (e) => {
+          // Prevent multiple fires if clicked directly on an anchor link inside
+          if (e.target.closest('.timetable-session-link')) return;
+          const sessionId = row.id.replace('row-', '');
+          toggleSession(sessionId);
+        });
+      });
+
+      // Timetable anchor links click trigger
+      const timetableLinks = document.querySelectorAll('.timetable-session-link');
+      timetableLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sessionId = link.getAttribute('data-session');
+          toggleSession(sessionId);
+        });
+      });
+
+      // About Section Session links click and direct scroll-expand trigger
+      const aboutLinks = document.querySelectorAll('.about-session-link');
+      aboutLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sessionId = link.getAttribute('data-session');
+          
+          // Expand session in program table
+          expandSession(sessionId);
+          
+          // Scroll smoothly and center the expanded row
+          const targetRow = document.getElementById(`row-${sessionId}`);
+          if (targetRow) {
+            targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+
