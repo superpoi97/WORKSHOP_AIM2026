@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Mechatronic Arc: Bridging the Gap Between Physical Design and Computational Intelligence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --primary-color: #04142f;      /* Deep Navy Blue from aim2026.com */
-      --primary-hover: #104b7d;      /* Highlight/hover Blue from aim2026.com */
-      --bg-light: #f1f7fc;           /* Light background from aim2026.com */
+      --primary-color: #04142f;
+      /* Deep Navy Blue from aim2026.com */
+      --primary-hover: #104b7d;
+      /* Highlight/hover Blue from aim2026.com */
+      --bg-light: #f1f7fc;
+      /* Light background from aim2026.com */
       --bg-white: #ffffff;
-      --text-default: #444444;       /* Default text color from aim2026.com */
-      --border-color: #bbd7f0;       /* Border/divider color from aim2026.com */
+      --text-default: #444444;
+      /* Default text color from aim2026.com */
+      --border-color: #bbd7f0;
+      /* Border/divider color from aim2026.com */
       --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
       --card-shadow-hover: 0 12px 35px rgba(4, 20, 47, 0.12);
     }
@@ -31,7 +39,7 @@
 
     header {
       background: linear-gradient(rgba(4, 20, 47, 0.75), rgba(4, 20, 47, 0.75)),
-                  url('assets/venue-genova.png') center/cover no-repeat;
+        url('assets/venue-genova.png') center/cover no-repeat;
       color: white;
       height: 100vh;
       display: flex;
@@ -106,7 +114,8 @@
     }
 
     /* Alternating section backgrounds */
-    #organizers, #program {
+    #organizers,
+    #program {
       background-color: var(--bg-light);
     }
 
@@ -142,11 +151,13 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
+
     @media (max-width: 868px) {
       .organizers {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
     @media (max-width: 480px) {
       .organizers {
         grid-template-columns: 1fr;
@@ -196,7 +207,8 @@
       display: block;
     }
 
-    .speaker-card img, .organizer-card img {
+    .speaker-card img,
+    .organizer-card img {
       width: 160px;
       height: 160px;
       object-fit: cover;
@@ -252,7 +264,8 @@
       border-radius: 12px;
     }
 
-    .speaker-card strong, .organizer-card strong {
+    .speaker-card strong,
+    .organizer-card strong {
       font-family: 'Poppins', sans-serif;
       font-size: 1.25rem;
       font-weight: 600;
@@ -261,7 +274,8 @@
       margin-bottom: 0.4rem;
     }
 
-    .speaker-card em, .organizer-card em {
+    .speaker-card em,
+    .organizer-card em {
       display: block;
       margin-top: 0.6rem;
       font-size: 0.95rem;
@@ -323,12 +337,14 @@
       gap: 2.5rem;
       margin-top: 3rem;
     }
+
     @media (max-width: 768px) {
       .acts-container {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
     }
+
     .act-card {
       background-color: var(--bg-white);
       border: 1px solid var(--border-color);
@@ -341,11 +357,13 @@
       display: flex;
       flex-direction: column;
     }
+
     .act-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--card-shadow-hover);
       border-color: var(--primary-hover);
     }
+
     .act-badge {
       display: inline-block;
       align-self: flex-start;
@@ -361,6 +379,7 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 4px 10px rgba(16, 75, 125, 0.2);
     }
+
     .act-card h4 {
       font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
@@ -369,6 +388,7 @@
       margin: 0 0 1.2rem 0;
       line-height: 1.3;
     }
+
     .act-card p {
       font-size: 0.98rem;
       line-height: 1.65;
@@ -376,14 +396,17 @@
       margin: 0 0 1.2rem 0;
       text-align: justify;
     }
+
     .act-card p:last-of-type {
       margin-bottom: 2rem;
     }
+
     .act-sessions-list {
       margin-top: auto;
       border-top: 1px solid var(--border-color);
       padding-top: 1.5rem;
     }
+
     .act-sessions-list h5 {
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
@@ -391,6 +414,7 @@
       color: var(--primary-color);
       margin: 0 0 1rem 0;
     }
+
     .about-session-link {
       display: flex;
       align-items: center;
@@ -406,15 +430,18 @@
       font-size: 0.92rem;
       transition: all 0.25s ease;
     }
+
     .about-session-link:last-child {
       margin-bottom: 0;
     }
+
     .about-session-link:hover {
       background-color: var(--bg-white);
       border-color: var(--primary-hover);
       transform: translateX(5px);
       box-shadow: 0 4px 12px rgba(4, 20, 47, 0.05);
     }
+
     .about-session-link .session-num {
       font-weight: 700;
       background-color: var(--primary-color);
@@ -426,9 +453,11 @@
       white-space: nowrap;
       transition: background-color 0.25s ease;
     }
+
     .about-session-link:hover .session-num {
       background-color: var(--primary-hover);
     }
+
     .about-session-link .session-title {
       line-height: 1.3;
     }
@@ -437,11 +466,13 @@
     .program-table tbody tr {
       transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
+
     .program-table tbody tr:hover:not(.table-act-header):not(.session-details-row) {
       background-color: rgba(16, 75, 125, 0.04) !important;
       transform: scale(1.005);
       box-shadow: 0 4px 15px rgba(4, 20, 47, 0.05);
     }
+
     .table-act-header {
       background-color: var(--primary-color);
       color: white;
@@ -450,6 +481,7 @@
       font-size: 1.1rem;
       letter-spacing: 0.5px;
     }
+
     .table-act-header td {
       padding: 14px 20px !important;
       color: white !important;
@@ -458,19 +490,22 @@
       font-size: 0.95rem;
       letter-spacing: 1px;
     }
+
     .session-row {
       cursor: pointer;
     }
+
     .session-row.open-row {
       background-color: rgba(16, 75, 125, 0.02) !important;
     }
+
     .session-name {
       font-weight: 600;
       color: var(--primary-color);
       font-size: 1.05rem;
       font-family: 'Poppins', sans-serif;
     }
-    
+
     .timetable-session-link {
       display: flex;
       align-items: center;
@@ -480,9 +515,11 @@
       transition: color 0.3s ease;
       width: 100%;
     }
+
     .timetable-session-link:hover {
       color: var(--primary-hover);
     }
+
     .chevron-icon {
       font-size: 0.75rem;
       margin-left: 10px;
@@ -490,9 +527,11 @@
       color: var(--primary-hover);
       display: inline-block;
     }
+
     .session-row.open-row .chevron-icon {
       transform: rotate(180deg);
     }
+
     .session-speakers-summary {
       font-size: 0.88rem;
       color: #666;
@@ -505,13 +544,17 @@
       display: none;
       background-color: #fafcfe !important;
     }
+
     .session-details-row.open {
       display: table-row;
     }
+
     .session-details-row td {
-      padding: 0 !important; /* reset padding to let content control collapse transition */
+      padding: 0 !important;
+      /* reset padding to let content control collapse transition */
       border-bottom: 1px solid var(--border-color);
     }
+
     .row-details-content {
       max-height: 0;
       overflow: hidden;
@@ -520,6 +563,7 @@
       box-sizing: border-box;
       transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease, padding 0.4s ease;
     }
+
     .details-desc h5 {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
@@ -527,6 +571,7 @@
       margin: 0 0 0.5rem 0;
       font-size: 1rem;
     }
+
     .details-desc p {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -534,18 +579,20 @@
       margin: 0 0 1.5rem 0;
       text-align: justify;
     }
-    
+
     .details-speakers-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin-bottom: 0.5rem;
     }
+
     @media (max-width: 600px) {
       .details-speakers-grid {
         grid-template-columns: 1fr;
       }
     }
+
     .details-speaker-card {
       background-color: var(--bg-white);
       border: 1px solid var(--border-color);
@@ -554,11 +601,13 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
       transition: all 0.25s ease;
     }
+
     .details-speaker-card:hover {
       border-color: var(--primary-hover);
       box-shadow: 0 6px 18px rgba(4, 20, 47, 0.06);
       transform: translateY(-2px);
     }
+
     .perspective-badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -570,14 +619,47 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+
     .perspective-badge.hw {
       background-color: rgba(4, 20, 47, 0.06);
       color: var(--primary-color);
     }
+
     .perspective-badge.sw {
       background-color: rgba(16, 75, 125, 0.08);
       color: var(--primary-hover);
     }
+
+    .perspective-badge.both {
+      background-color: rgba(4, 20, 47, 0.08);
+      color: var(--primary-color);
+      border: 1px dashed rgba(4, 20, 47, 0.25);
+    }
+    .special-guest-card {
+      border: 1px solid #d4af37 !important;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.04) 0%, #ffffff 100%) !important;
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.08) !important;
+    }
+    .special-guest-card:hover {
+      border-color: #aa8412 !important;
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.16) !important;
+    }
+    .special-guest-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #d4af37;
+      color: #04142f;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: 'Poppins', sans-serif;
+      z-index: 10;
+    }
+
     .speaker-name {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
@@ -585,6 +667,7 @@
       color: var(--primary-color);
       margin: 0 0 0.4rem 0;
     }
+
     .presentation-title {
       font-size: 0.88rem;
       font-style: italic;
@@ -592,13 +675,16 @@
       margin: 0 0 0.75rem 0;
       line-height: 1.4;
     }
+
     .presentation-duration {
       font-size: 0.8rem;
       color: #777;
     }
 
     /* Break Badges & Liquid Retina rows */
-    .break-badge, .lunch-badge, .delay-badge {
+    .break-badge,
+    .lunch-badge,
+    .delay-badge {
       display: inline-block;
       padding: 0.35rem 0.9rem;
       border-radius: 20px;
@@ -608,18 +694,22 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+
     .break-badge {
       background-color: #eaf6ff;
       color: var(--primary-hover);
     }
+
     .lunch-badge {
       background-color: #eafaf1;
       color: #2ecc71;
     }
+
     .delay-badge {
       background-color: #fff9e6;
       color: #f39c12;
     }
+
     .special-row td {
       vertical-align: middle;
     }
@@ -642,14 +732,14 @@
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    
+
     .announcement-badge:hover {
       background: rgba(255, 255, 255, 0.22);
       border-color: rgba(255, 255, 255, 0.4);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
     }
-    
+
     .badge-pulse {
       width: 9px;
       height: 9px;
@@ -659,7 +749,7 @@
       position: relative;
       display: inline-block;
     }
-    
+
     .badge-pulse::after {
       content: '';
       position: absolute;
@@ -671,24 +761,25 @@
       top: 0;
       left: 0;
     }
-    
+
     @keyframes pulse {
       0% {
         transform: scale(1);
         opacity: 1;
       }
+
       100% {
         transform: scale(2.8);
         opacity: 0;
       }
     }
-    
+
     .nav-buttons a.nav-call-for-posters {
       background: linear-gradient(135deg, #e74c3c, #c0392b);
       border-color: transparent;
       box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
     }
-    
+
     .nav-buttons a.nav-call-for-posters:hover {
       background: transparent;
       border-color: #e74c3c;
@@ -703,16 +794,19 @@
         font-size: 2.1rem !important;
         padding: 0 1rem;
       }
+
       h2 {
         font-size: 1.25rem !important;
         margin: 1.2rem 0 !important;
         padding: 0 1rem;
       }
+
       header {
         height: auto !important;
         min-height: 100vh;
         padding: 3.5rem 1.5rem !important;
       }
+
       .nav-buttons a {
         padding: 0.6rem 1.1rem !important;
         font-size: 0.88rem !important;
@@ -733,31 +827,31 @@
       box-shadow: var(--card-shadow);
       text-align: left;
     }
-    
+
     .aim-logo-small {
       height: 70px;
       object-fit: contain;
       flex-shrink: 0;
     }
-    
+
     .aim-context-text {
       font-size: 1rem;
       line-height: 1.6;
       color: var(--text-default);
       margin: 0;
     }
-    
+
     .aim-context-text a {
       color: var(--primary-hover);
       text-decoration: underline;
       font-weight: 600;
       transition: color 0.2s ease;
     }
-    
+
     .aim-context-text a:hover {
       color: var(--primary-color);
     }
-    
+
     @media (max-width: 600px) {
       .aim-context-card {
         flex-direction: column;
@@ -765,16 +859,18 @@
         gap: 1.25rem;
         padding: 1.5rem;
       }
+
       .aim-logo-small {
         height: 60px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    
+
     <a href="call-for-posters.html" class="announcement-badge">
       <span class="badge-pulse"></span> Call for Posters is Open! Submit by July 1st
     </a>
@@ -782,7 +878,7 @@
     <h1>The Mechatronic Arc:</h1>
     <h2>Bridging the Gap Between Physical Design and Computational Intelligence</h2>
     <div class="info">📅 July 7, 2026 &nbsp;|&nbsp; 📍 Porto Antico, Magazzini del cotone
-Genova (Italy)</div>
+      Genova (Italy)</div>
     <div class="nav-buttons">
       <a href="#about">About</a>
       <a href="#organizers">Organizers</a>
@@ -800,15 +896,29 @@ Genova (Italy)</div>
       <div class="aim-context-card">
         <img src="assets/aim_logo.png" alt="AIM 2026 Logo" class="aim-logo-small">
         <p class="aim-context-text">
-          This workshop is organized in conjunction with the <strong>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM 2026)</strong>, which will be held in Genova, Italy, from July 7th to 10th, 2026. For registration and details about the main conference, please visit the official <a href="https://aim2026.com/" target="_blank" rel="noopener noreferrer">AIM 2026 Website</a>.
+          This workshop is organized in conjunction with the <strong>IEEE/ASME International Conference on Advanced
+            Intelligent Mechatronics (AIM 2026)</strong>, which will be held in Genova, Italy, from July 7th to 10th,
+          2026. For registration and details about the main conference, please visit the official <a
+            href="https://aim2026.com/" target="_blank" rel="noopener noreferrer">AIM 2026 Website</a>.
         </p>
       </div>
 
-      <p>The design philosophy underlying modern robotics is not monolithic; rather, it evolves dynamically in relation to the scale and complexity of the problem addressed. Advanced robotic systems rely on a continuous dialogue between their <strong>physical embodiment</strong> and their <strong>algorithmic intelligence</strong>. On one hand, intelligence does not reside solely in software but is encoded within the robot’s mechanics—a form of <em>Embodied Intelligence</em> that defines intrinsic capabilities in perception, action, and safety. On the other hand, the <em>Algorithmic Intelligence</em> of software expands these abilities, enabling versatility and complex behaviors that cannot be realized through matter alone.</p>
+      <p>The design philosophy underlying modern robotics is not monolithic; rather, it evolves dynamically in relation
+        to the scale and complexity of the problem addressed. Advanced robotic systems rely on a continuous dialogue
+        between their <strong>physical embodiment</strong> and their <strong>algorithmic intelligence</strong>. On one
+        hand, intelligence does not reside solely in software but is encoded within the robot’s mechanics—a form of
+        <em>Embodied Intelligence</em> that defines intrinsic capabilities in perception, action, and safety. On the
+        other hand, the <em>Algorithmic Intelligence</em> of software expands these abilities, enabling versatility and
+        complex behaviors that cannot be realized through matter alone.
+      </p>
 
-      <p>In robotics, a fundamental dichotomy is often faced: <strong>should a specific function be delegated to the hardware or to the software?</strong></p>
+      <p>In robotics, a fundamental dichotomy is often faced: <strong>should a specific function be delegated to the
+          hardware or to the software?</strong></p>
 
-      <p>This workshop proposes to explore this duality by tracing a <strong>"Mechatronic Arc,"</strong> a narrative path that guides participants from a paradigm of component-level trade-offs to one of system-level synthesis. By fostering a direct comparison between leading researchers who approach similar challenges from opposing paradigms, the workshop is structured into two distinct Acts:</p>
+      <p>This workshop proposes to explore this duality by tracing a <strong>"Mechatronic Arc,"</strong> a narrative
+        path that guides participants from a paradigm of component-level trade-offs to one of system-level synthesis. By
+        fostering a direct comparison between leading researchers who approach similar challenges from opposing
+        paradigms, the workshop is structured into two distinct Acts:</p>
 
       <!-- Liquid Retina 2-Act Layout -->
       <div class="acts-container">
@@ -816,9 +926,14 @@ Genova (Italy)</div>
         <div class="act-card">
           <div class="act-badge">Act I</div>
           <h4>The Functional Dichotomy – Matter vs. Math</h4>
-          <p>In the realm of component design, the engineer is frequently tasked with selecting the optimal tool for a singular purpose. This section investigates the functional trade-offs where physical laws and control laws compete for supremacy, debating whether the task is better achieved through material properties or mathematical models.</p>
-          <p>We will analyze how contact perception can be achieved through dedicated sensorization versus software estimators; how compliance can be an intrinsic material property versus a control-simulated behavior; and how safety can be guaranteed by passive mechanical constraints versus active algorithmic barriers.</p>
-          
+          <p>In the realm of component design, the engineer is frequently tasked with selecting the optimal tool for a
+            singular purpose. This section investigates the functional trade-offs where physical laws and control laws
+            compete for supremacy, debating whether the task is better achieved through material properties or
+            mathematical models.</p>
+          <p>We will analyze how contact perception can be achieved through dedicated sensorization versus software
+            estimators; how compliance can be an intrinsic material property versus a control-simulated behavior; and
+            how safety can be guaranteed by passive mechanical constraints versus active algorithmic barriers.</p>
+
           <div class="act-sessions-list">
             <h5>Sessions in Act I:</h5>
             <a href="#program" class="about-session-link" data-session="s1">
@@ -840,18 +955,24 @@ Genova (Italy)</div>
         <div class="act-card">
           <div class="act-badge">Act II</div>
           <h4>The Necessary Symbiosis – When Bodies and Controllers Co-Evolve</h4>
-          <p>Transitioning to high-complexity systems, the separation between “controller” and “plant” becomes an obstacle rather than a design choice. This section illustrates that for sophisticated robots—and especially for human-centered mechatronic devices—intelligence cannot simply be programmed “into” a machine but must be physically grounded “within” its morphology and interfaces.</p>
-          <p>By examining robot body co-design and rehabilitation/assistive robotics, it becomes evident that the most ambitious challenges cannot be solved by choosing between hardware and software, but only through their profound symbiosis. In these domains, mechanical architecture, physical coupling, and control policies must evolve jointly.</p>
-          
+          <p>Transitioning to high-complexity systems, the separation between “controller” and “plant” becomes an
+            obstacle rather than a design choice. This section illustrates that for sophisticated robots—and especially
+            for human-centered mechatronic devices—intelligence cannot simply be programmed “into” a machine but must be
+            physically grounded “within” its morphology and interfaces.</p>
+          <p>By examining robot body co-design and rehabilitation/assistive robotics, it becomes evident that the most
+            ambitious challenges cannot be solved by choosing between hardware and software, but only through their
+            profound symbiosis. In these domains, mechanical architecture, physical coupling, and control policies must
+            evolve jointly.</p>
+
           <div class="act-sessions-list">
             <h5>Sessions in Act II:</h5>
             <a href="#program" class="about-session-link" data-session="s4">
               <span class="session-num">Session 4</span>
-              <span class="session-title">Body – Co-Designing Robots</span>
+              <span class="session-title">Rehab – The Human–Machine Symbiosis</span>
             </a>
             <a href="#program" class="about-session-link" data-session="s5">
               <span class="session-num">Session 5</span>
-              <span class="session-title">Rehab – The Human–Machine Symbiosis</span>
+              <span class="session-title">Body – Co-Designing Robots</span>
             </a>
           </div>
         </div>
@@ -870,7 +991,7 @@ Genova (Italy)</div>
             <em>Università degli Studi di Genova<br> Università degli Studi di Napoli Federico II</em>
           </div>
         </div>
-        
+
         <div class="organizer-card">
           <img src="assets/organizers/derisi.jpeg" alt="Paolino De Risi">
           <div>
@@ -878,7 +999,7 @@ Genova (Italy)</div>
             <em>Università degli Studi di Napoli Federico II</em>
           </div>
         </div>
-        
+
         <div class="organizer-card">
           <img src="assets/organizers/ficuciello.png" alt="Fanny Ficuciello">
           <div>
@@ -886,7 +1007,7 @@ Genova (Italy)</div>
             <em>Università degli Studi di Napoli Federico II</em>
           </div>
         </div>
-        
+
         <div class="organizer-card">
           <img src="assets/organizers/berselli.jpg" alt="Giovanni Berselli">
           <div>
@@ -902,21 +1023,13 @@ Genova (Italy)</div>
     <div class="section-container">
       <h3>Speakers</h3>
       <div class="speakers">
-        <a href="speaker.html?id=tba" class="speaker-card-link">
-          <div class="speaker-card">
-            <img src="assets/speakers/placeholder.png" alt="To be announced">
-            <strong>To be announced</strong>
-            TBD
-            <em>Biography and talk details will be announced soon.</em>
-            <div class="read-bio-link">View Profile & Abstract</div>
-          </div>
-        </a>
         <a href="speaker.html?id=masiero" class="speaker-card-link">
           <div class="speaker-card">
             <img src="assets/speakers/masiero.jpg" alt="Federico Masiero">
             <strong>Federico Masiero</strong>
             Technical University of Munich
-            <em>His research focuses on wearable robotics, physical human-robot interaction (pHRI), and using soft magnetic sensors to transduce human motion.</em>
+            <em>His research focuses on wearable robotics, physical human-robot interaction (pHRI), and using soft
+              magnetic sensors to transduce human motion.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
@@ -925,7 +1038,8 @@ Genova (Italy)</div>
             <img src="assets/speakers/garabini.jpg" alt="Manolo Garabini">
             <strong>Manolo Garabini</strong>
             Università di Pisa
-            <em>His research centers on the design, planning, and control of soft adaptive robots, variable stiffness actuators, and collaborative humanoid joints.</em>
+            <em>His research centers on the design, planning, and control of soft adaptive robots, variable stiffness
+              actuators, and collaborative humanoid joints.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
@@ -934,25 +1048,18 @@ Genova (Italy)</div>
             <img src="assets/speakers/saveriano.jpg" alt="Matteo Saveriano" style="object-position: 50% 60%;">
             <strong>Matteo Saveriano</strong>
             Università di Trento
-            <em>His research integrates cognitive robots into factories and social environments, focusing on safe human-robot interaction and learning from demonstration.</em>
+            <em>His research integrates cognitive robots into factories and social environments, focusing on safe
+              human-robot interaction and learning from demonstration.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
-        <a href="speaker.html?id=khatib" class="speaker-card-link">
+        <a href="speaker.html?id=kirschner" class="speaker-card-link">
           <div class="speaker-card">
-            <img src="assets/speakers/Khatib.jpg" alt="Oussama Khatib">
-            <strong>Oussama Khatib <span style="font-size: 0.9rem; font-weight: normal; color: #e74c3c;">(to be confirmed)</span></strong>
-            Stanford University
-            <em>A pioneer in robotics, his research focuses on human-centered robotics, advanced control architectures, and deep-sea robotic exploration.</em>
-            <div class="read-bio-link">View Profile & Abstract</div>
-          </div>
-        </a>
-        <a href="speaker.html?id=fisac" class="speaker-card-link">
-          <div class="speaker-card">
-            <img src="assets/speakers/fernandez_fisac.jpg" alt="Jaime Fernández Fisac">
-            <strong>Jaime Fernández Fisac</strong>
-            Princeton University
-            <em>His research focuses on safe robotics, control systems, game theory, and artificial intelligence to assure safety around humans in real-world settings.</em>
+            <img src="assets/speakers/kirschner.jpg" alt="Robin Kirschner">
+            <strong>Robin Kirschner</strong>
+            Technical University of Munich
+            <em>Her research focuses on physical and cognitive safety in human-robot collaboration, centering on injury
+              modeling, safety perception, and control strategies for safe interaction.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
@@ -961,7 +1068,8 @@ Genova (Italy)</div>
             <img src="assets/speakers/russo.jpg" alt="Matteo Russo">
             <strong>Matteo Russo</strong>
             Università di Roma Tor Vergata
-            <em>His research involves the design and modeling of continuum and soft robots for minimally invasive surgery and high-performance mechanism optimization.</em>
+            <em>His research involves the design and modeling of continuum and soft robots for minimally invasive
+              surgery and high-performance mechanism optimization.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
@@ -970,7 +1078,8 @@ Genova (Italy)</div>
             <img src="assets/speakers/trumic.jpg" alt="Maja Trumić">
             <strong>Maja Trumić</strong>
             Delft University of Technology
-            <em>Her research centers on control systems for articulated soft robots, variable stiffness actuators, and nonlinear adaptive control theory.</em>
+            <em>Her research centers on control systems for articulated soft robots, variable stiffness actuators, and
+              nonlinear adaptive control theory.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
@@ -979,19 +1088,42 @@ Genova (Italy)</div>
             <img src="assets/speakers/trigili.jpg" alt="Emilio Trigili">
             <strong>Emilio Trigili</strong>
             Scuola Superiore Sant'Anna
-            <em>His research is centered on wearable and rehabilitation robotics, specializing in exoskeleton design, control, and human intention-decoding.</em>
+            <em>His research is centered on wearable and rehabilitation robotics, specializing in exoskeleton design,
+              control, and human intention-decoding.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
         <a href="speaker.html?id=tessari" class="speaker-card-link">
           <div class="speaker-card">
             <img src="assets/speakers/tessari.jpg" alt="Federico Tessari">
-            <strong>Federico Tessari <span style="font-size: 0.9rem; font-weight: normal; color: #e74c3c;">(to be confirmed)</span></strong>
+            <strong>Federico Tessari</strong>
             Massachusetts Institute of Technology
-            <em>His research bridges rehabilitation robotics and motor neuroscience, investigating human motor coordination and custom electro-hydrostatic actuating units.</em>
+            <em>His research bridges rehabilitation robotics and motor neuroscience, investigating human motor
+              coordination and custom electro-hydrostatic actuating units.</em>
             <div class="read-bio-link">View Profile & Abstract</div>
           </div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="special-guest" style="background-color: var(--bg-light); border-top: 1px solid var(--border-color); padding: 4rem 0;">
+    <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+      <h3 style="text-align: center; margin-bottom: 2rem;">Special Guest</h3>
+      <div style="display: flex; justify-content: center; width: 100%;">
+        <div style="max-width: 320px; width: 100%;">
+          <a href="speaker.html?id=khatib" class="speaker-card-link">
+            <div class="speaker-card special-guest-card">
+              <span class="special-guest-badge">Special Guest</span>
+              <img src="assets/speakers/Khatib.jpg" alt="Oussama Khatib">
+              <strong>Oussama Khatib</strong>
+              Stanford University
+              <em style="font-weight: 600; color: #aa8412; border-top: 1px solid rgba(212, 175, 55, 0.25); margin-top: 0.8rem; padding-top: 0.8rem; font-style: normal; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">Roundtable Act I Panelist</em>
+              <em style="margin-top: 0.5rem;">A pioneer in robotics, he will join us as a Special Guest participating in the Act I Roundtable panel.</em>
+              <div class="read-bio-link">View Profile & Abstract</div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1017,14 +1149,15 @@ Genova (Italy)</div>
               <td><strong>11:15 – 11:25</strong></td>
               <td>
                 <div class="session-name">Welcome &amp; Introduction</div>
-                <div class="session-sub">The Mechatronic Arc: Bridging the Gap Between Physical Design and Computational Intelligence</div>
+                <div class="session-sub">The Mechatronic Arc: Bridging the Gap Between Physical Design and Computational
+                  Intelligence</div>
               </td>
               <td>10 min</td>
             </tr>
-            
+
             <!-- Session 1 Row -->
             <tr class="session-row" id="row-s1">
-              <td><strong>11:25 – 12:10</strong></td>
+              <td><strong>11:25 – 12:00</strong></td>
               <td>
                 <div class="session-name">
                   <a href="javascript:void(0)" class="timetable-session-link" data-session="s1">
@@ -1032,44 +1165,39 @@ Genova (Italy)</div>
                     <span class="chevron-icon">▼</span>
                   </a>
                 </div>
-                <div class="session-speakers-summary">To be announced | F. Masiero &nbsp;&nbsp;(Click to view details)</div>
+                <div class="session-speakers-summary">F. Masiero &nbsp;&nbsp;(Click to view details)</div>
               </td>
-              <td>45 min</td>
+              <td>35 min</td>
             </tr>
             <tr class="session-details-row" id="details-s1">
               <td colspan="3">
                 <div class="row-details-content">
                   <div class="details-desc">
                     <h5>Session Overview</h5>
-                    <p>This session questions the necessity of complex hardware for perception. On one side, the Embodied Sensing approach advocates for the integration of dedicated, high-fidelity sensory hardware—such as distributed tactile surfaces or specialized force/torque sensors—to grant robots a direct, physical sensitivity to their environment. On the opposing side, the Algorithmic Sensing perspective champions the use of advanced observers and data-driven techniques to transform the robot’s existing actuation system into a "virtual sensor." This approach focuses on estimating external forces and contacts through proprioception and mathematical models, eliminating the need for additional, often fragile, instrumentation.</p>
+                    <p>This session questions the necessity of complex hardware for perception. On one side, the
+                      Embodied Sensing approach advocates for the integration of dedicated, high-fidelity sensory
+                      hardware—such as distributed tactile surfaces or specialized force/torque sensors—to grant robots
+                      a direct, physical sensitivity to their environment. On the opposing side, the Algorithmic Sensing
+                      perspective champions the use of advanced observers and data-driven techniques to transform the
+                      robot’s existing actuation system into a "virtual sensor." This approach focuses on estimating
+                      external forces and contacts through proprioception and mathematical models, eliminating the need
+                      for additional, often fragile, instrumentation.</p>
                   </div>
                   <div class="details-speakers-grid">
-                    <div class="details-speaker-card hw">
-                      <div class="perspective-badge hw">Hardware (HW)</div>
-                      <h6 class="speaker-name">To be announced</h6>
-                      <p class="presentation-title">“TBD (to be defined)”</p>
-                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
-                    </div>
-                    <div class="details-speaker-card sw">
-                      <div class="perspective-badge sw">Software (SW)</div>
+                    <div class="details-speaker-card both" style="grid-column: 1 / -1;">
+                      <div class="perspective-badge both">Full Perspective (HW &amp; SW)</div>
                       <h6 class="speaker-name">Federico Masiero</h6>
-                      <p class="presentation-title">“Magnetic Sensing for Human-Robot Interaction”</p>
-                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                      <p class="presentation-title">“New Approaches to Magnetic Methods for Robotics”</p>
+                      <span class="presentation-duration">🕒 30 min + 5 min Q&amp;A</span>
                     </div>
                   </div>
                 </div>
               </td>
             </tr>
 
-            <tr class="special-row">
-              <td><strong>12:10 – 12:15</strong></td>
-              <td><span class="delay-badge">Seating / Transition Delay</span></td>
-              <td>5 min</td>
-            </tr>
-
             <!-- Session 2 Row -->
             <tr class="session-row" id="row-s2">
-              <td><strong>12:15 – 13:00</strong></td>
+              <td><strong>12:00 – 12:50</strong></td>
               <td>
                 <div class="session-name">
                   <a href="javascript:void(0)" class="timetable-session-link" data-session="s2">
@@ -1077,22 +1205,30 @@ Genova (Italy)</div>
                     <span class="chevron-icon">▼</span>
                   </a>
                 </div>
-                <div class="session-speakers-summary">M. Garabini | M. Saveriano &nbsp;&nbsp;(Click to view details)</div>
+                <div class="session-speakers-summary">M. Garabini | M. Saveriano &nbsp;&nbsp;(Click to view details)
+                </div>
               </td>
-              <td>45 min</td>
+              <td>50 min</td>
             </tr>
             <tr class="session-details-row" id="details-s2">
               <td colspan="3">
                 <div class="row-details-content">
                   <div class="details-desc">
                     <h5>Session Overview</h5>
-                    <p>Adaptability to the environment is crucial, but where should it originate? The Passive Compliance perspective focuses on designing actuation systems with intrinsic elasticity—ranging from soft fluidic actuators to mechanically variable stiffness mechanisms. In this view, compliance is a physical property inherent to the device, ensuring passive safety and energy efficiency at the source. In contrast, the Active Compliance approach (Variable Impedance Control) relies on stiff, high-bandwidth actuators governed by control loops that simulate virtual springs and dampers, offering programmable versatility that allows the robot's behavior to be radically altered without mechanical modification.</p>
+                    <p>Adaptability to the environment is crucial, but where should it originate? The Passive Compliance
+                      perspective focuses on designing actuation systems with intrinsic elasticity—ranging from soft
+                      fluidic actuators to mechanically variable stiffness mechanisms. In this view, compliance is a
+                      physical property inherent to the device, ensuring passive safety and energy efficiency at the
+                      source. In contrast, the Active Compliance approach (Variable Impedance Control) relies on stiff,
+                      high-bandwidth actuators governed by control loops that simulate virtual springs and dampers,
+                      offering programmable versatility that allows the robot's behavior to be radically altered without
+                      mechanical modification.</p>
                   </div>
                   <div class="details-speakers-grid">
                     <div class="details-speaker-card hw">
                       <div class="perspective-badge hw">Hardware (HW)</div>
                       <h6 class="speaker-name">Manolo Garabini</h6>
-                      <p class="presentation-title">“Soft is Nothing Without Control”</p>
+                      <p class="presentation-title">“Modular Multimodal Robots: the mechatronics behind the next robot generation”</p>
                       <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
                     </div>
                     <div class="details-speaker-card sw">
@@ -1111,10 +1247,9 @@ Genova (Italy)</div>
               <td><span class="lunch-badge">🍽️ Lunch Break &amp; Poster Session</span></td>
               <td>60 min</td>
             </tr>
-
             <!-- Session 3 Row -->
             <tr class="session-row" id="row-s3">
-              <td><strong>14:00 – 14:45</strong></td>
+              <td><strong>14:00 – 14:35</strong></td>
               <td>
                 <div class="session-name">
                   <a href="javascript:void(0)" class="timetable-session-link" data-session="s3">
@@ -1122,29 +1257,33 @@ Genova (Italy)</div>
                     <span class="chevron-icon">▼</span>
                   </a>
                 </div>
-                <div class="session-speakers-summary">O. Khatib (to be confirmed) | J. F. Fisac &nbsp;&nbsp;(Click to view details)</div>
+                <div class="session-speakers-summary">R. Kirschner &nbsp;&nbsp;(Click to view details)</div>
               </td>
-              <td>45 min</td>
+              <td>35 min</td>
             </tr>
             <tr class="session-details-row" id="details-s3">
               <td colspan="3">
                 <div class="row-details-content">
                   <div class="details-desc">
                     <h5>Session Overview</h5>
-                    <p>When humans and robots share space, safety is non-negotiable. The Passive Safety perspective emphasizes intrinsic mechanism design, advocating for lightweight structures, mechanical joint limits, and impact-mitigating geometries. This philosophy relies on physical constraints to ensure that injury is physically impossible or drastically mitigated, providing a fail-safe layer that persists even in the event of a total control failure. Conversely, the Active Safety approach employs formal methods and real-time algorithmic filters (such as control barrier functions, reachable set analysis or safety filters). This methodology wraps the system in a "mathematical safety shield," allowing high-performance hardware to operate aggressively while providing certifiable guarantees that unsafe states remain unreachable via continuous software monitoring.</p>
+                    <p>When humans and robots share space, safety is non-negotiable. The Passive Safety perspective
+                      emphasizes intrinsic mechanism design, advocating for lightweight structures, mechanical joint
+                      limits, and impact-mitigating geometries. This philosophy relies on physical constraints to ensure
+                      that injury is physically impossible or drastically mitigated, providing a fail-safe layer that
+                      persists even in the event of a total control failure. Conversely, the Active Safety approach
+                      employs formal methods and real-time algorithmic filters (such as control barrier functions,
+                      reachable set analysis or safety filters). This methodology wraps the system in a "mathematical
+                      safety shield," allowing high-performance hardware to operate aggressively while providing
+                      certifiable guarantees that unsafe states remain unreachable via continuous software monitoring.
+                    </p>
                   </div>
                   <div class="details-speakers-grid">
-                    <div class="details-speaker-card hw">
-                      <div class="perspective-badge hw">Hardware (HW)</div>
-                      <h6 class="speaker-name">Oussama Khatib (to be confirmed)</h6>
-                      <p class="presentation-title">“TBD (to be defined)”</p>
-                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
-                    </div>
-                    <div class="details-speaker-card sw">
-                      <div class="perspective-badge sw">Software (SW)</div>
-                      <h6 class="speaker-name">Jaime Fernández Fisac</h6>
-                      <p class="presentation-title">“Safety through Intelligence: How AI and Control Theory Help Robots Preempt Harm”</p>
-                      <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
+                    <div class="details-speaker-card both" style="grid-column: 1 / -1;">
+                      <div class="perspective-badge both">Full Perspective (HW &amp; SW)</div>
+                      <h6 class="speaker-name">Robin Kirschner</h6>
+                      <p class="presentation-title">“Certifiable Safe Human–Robot Interaction Starts with Holistic
+                        Physical Design”</p>
+                      <span class="presentation-duration">🕒 30 min + 5 min Q&amp;A</span>
                     </div>
                   </div>
                 </div>
@@ -1152,17 +1291,12 @@ Genova (Italy)</div>
             </tr>
 
             <tr>
-              <td><strong>14:45 – 15:05</strong></td>
+              <td><strong>14:35 – 15:10</strong></td>
               <td>
-                <div class="session-name">Roundtable Act I</div>
+                <div class="session-name">Roundtable Act I <span style="font-size: 0.9rem; font-weight: normal; color: #aa8412; margin-left: 8px;">(featuring Special Guest Oussama Khatib)</span></div>
                 <div class="session-sub">Act I: The Functional Dichotomy - Matter vs. Math</div>
               </td>
-              <td>20 min</td>
-            </tr>
-            <tr class="special-row">
-              <td><strong>15:05 – 15:10</strong></td>
-              <td><span class="delay-badge">Seating / Transition Delay</span></td>
-              <td>5 min</td>
+              <td>35 min</td>
             </tr>
 
             <!-- Session 4 Row -->
@@ -1171,11 +1305,11 @@ Genova (Italy)</div>
               <td>
                 <div class="session-name">
                   <a href="javascript:void(0)" class="timetable-session-link" data-session="s4">
-                    <span>Session 4: Body - Co-Designing Robots</span>
+                    <span>Session 4: Rehab - The Human–Machine Symbiosis</span>
                     <span class="chevron-icon">▼</span>
                   </a>
                 </div>
-                <div class="session-speakers-summary">M. Russo | M. Trumić &nbsp;&nbsp;(Click to view details)</div>
+                <div class="session-speakers-summary">E. Trigili | F. Tessari &nbsp;&nbsp;(Click to view details)</div>
               </td>
               <td>50 min</td>
             </tr>
@@ -1184,19 +1318,30 @@ Genova (Italy)</div>
                 <div class="row-details-content">
                   <div class="details-desc">
                     <h5>Session Overview</h5>
-                    <p>In high-dimensional robots such as soft robots, the distinction between the "plant" and the "controller" becomes blurred. The Hardware Perspective focuses on advanced mechatronic architecture, illustrating how the physical design—including mass distribution, kinematic structure, actuator placement and mechanical stiffness—fundamentally shapes the robot's capabilities and pre-defines the solution space for the control problem. Complementing this, the Software Perspective focuses on high-level controllers such as data-driven (soft robots) or whole-body control (humanoids and quadrupeds) and planning, demonstrating how algorithms must orchestrate the massive kinematic and dynamic redundancy provided by the hardware to achieve robust locomotion, balance, and manipulation in unstructured environments.</p>
+                    <p>The final session addresses the ultimate integration: the merging of robotic systems with the
+                      human body. In rehabilitation and assistive robotics, hardware and software must not only coexist
+                      but cooperate intimately with a biological partner, where the human becomes an integral component
+                      of the system dynamics. The Hardware Perspective focuses on the mechatronic design of exoskeletons
+                      and prosthetic devices. It argues that the physical interface—including kinematic compatibility,
+                      back-drivability, compliance, and ergonomic actuation—is a primary determinant of interaction
+                      quality. Here, “intelligence” is embodied in the mechanism’s ability to be transparent or
+                      supportive through its physical structure, providing an intrinsic baseline of safety and usability
+                      even under imperfect control. Conversely, the Software Perspective centers on Human-in-the-Loop
+                      control and intention estimation. This approach tackles the algorithmic challenge of inferring the
+                      user’s intent (via EMG, EEG, or interaction forces) and modulating assistance in real time
+                      (“assistance-as-needed”).</p>
                   </div>
                   <div class="details-speakers-grid">
                     <div class="details-speaker-card hw">
                       <div class="perspective-badge hw">Hardware (HW)</div>
-                      <h6 class="speaker-name">Matteo Russo</h6>
-                      <p class="presentation-title">“Robot design: Reclaiming hardware in the age of AI”</p>
+                      <h6 class="speaker-name">Emilio Trigili</h6>
+                      <p class="presentation-title">“Engineering human-robot interaction in upper-limb exoskeletons”</p>
                       <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
                     </div>
                     <div class="details-speaker-card sw">
                       <div class="perspective-badge sw">Software (SW)</div>
-                      <h6 class="speaker-name">Maja Trumić</h6>
-                      <p class="presentation-title">“Tackling control challenges in soft robotics through model-based approaches”</p>
+                      <h6 class="speaker-name">Federico Tessari </h6>
+                      <p class="presentation-title">“Complexity is a Feature, not a Bug: Rethinking Human Coordination for Computationally Intelligent Machines”</p>
                       <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
                     </div>
                   </div>
@@ -1209,7 +1354,6 @@ Genova (Italy)</div>
               <td><span class="break-badge">☕ Afternoon Coffee Break</span></td>
               <td>30 min</td>
             </tr>
-
             <!-- Act II Section Header -->
             <tr class="table-act-header">
               <td colspan="3">Act II: The Necessary Symbiosis - When Bodies and Controllers Co-Evolve</td>
@@ -1221,11 +1365,11 @@ Genova (Italy)</div>
               <td>
                 <div class="session-name">
                   <a href="javascript:void(0)" class="timetable-session-link" data-session="s5">
-                    <span>Session 5: Rehab - The Human–Machine Symbiosis</span>
+                    <span>Session 5: Body - Co-Designing Robots</span>
                     <span class="chevron-icon">▼</span>
                   </a>
                 </div>
-                <div class="session-speakers-summary">E. Trigili | F. Tessari (to be confirmed) &nbsp;&nbsp;(Click to view details)</div>
+                <div class="session-speakers-summary">M. Russo | M. Trumić &nbsp;&nbsp;(Click to view details)</div>
               </td>
               <td>50 min</td>
             </tr>
@@ -1234,19 +1378,28 @@ Genova (Italy)</div>
                 <div class="row-details-content">
                   <div class="details-desc">
                     <h5>Session Overview</h5>
-                    <p>The final session addresses the ultimate integration: the merging of robotic systems with the human body. In rehabilitation and assistive robotics, hardware and software must not only coexist but cooperate intimately with a biological partner, where the human becomes an integral component of the system dynamics. The Hardware Perspective focuses on the mechatronic design of exoskeletons and prosthetic devices. It argues that the physical interface—including kinematic compatibility, back-drivability, compliance, and ergonomic actuation—is a primary determinant of interaction quality. Here, “intelligence” is embodied in the mechanism’s ability to be transparent or supportive through its physical structure, providing an intrinsic baseline of safety and usability even under imperfect control. Conversely, the Software Perspective centers on Human-in-the-Loop control and intention estimation. This approach tackles the algorithmic challenge of inferring the user’s intent (via EMG, EEG, or interaction forces) and modulating assistance in real time (“assistance-as-needed”).</p>
+                    <p>In high-dimensional robots such as soft robots, the distinction between the "plant" and the
+                      "controller" becomes blurred. The Hardware Perspective focuses on advanced mechatronic
+                      architecture, illustrating how the physical design—including mass distribution, kinematic
+                      structure, actuator placement and mechanical stiffness—fundamentally shapes the robot's
+                      capabilities and pre-defines the solution space for the control problem. Complementing this, the
+                      Software Perspective focuses on high-level controllers such as data-driven (soft robots) or
+                      whole-body control (humanoids and quadrupeds) and planning, demonstrating how algorithms must
+                      orchestrate the massive kinematic and dynamic redundancy provided by the hardware to achieve
+                      robust locomotion, balance, and manipulation in unstructured environments.</p>
                   </div>
                   <div class="details-speakers-grid">
                     <div class="details-speaker-card hw">
                       <div class="perspective-badge hw">Hardware (HW)</div>
-                      <h6 class="speaker-name">Emilio Trigili</h6>
-                      <p class="presentation-title">“Human-robot interaction in exoskeletons: from mechanical design to intention-aware control”</p>
+                      <h6 class="speaker-name">Matteo Russo</h6>
+                      <p class="presentation-title">“Robot design: Reclaiming hardware in the age of AI”</p>
                       <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
                     </div>
                     <div class="details-speaker-card sw">
                       <div class="perspective-badge sw">Software (SW)</div>
-                      <h6 class="speaker-name">Federico Tessari (to be confirmed)</h6>
-                      <p class="presentation-title">“TBD (to be defined)”</p>
+                      <h6 class="speaker-name">Maja Trumić</h6>
+                      <p class="presentation-title">“Tackling control challenges in soft robotics through model-based
+                        approaches”</p>
                       <span class="presentation-duration">🕒 20 min + 5 min Q&amp;A</span>
                     </div>
                   </div>
@@ -1263,12 +1416,12 @@ Genova (Italy)</div>
               <td>25 min</td>
             </tr>
             <tr>
-              <td><strong>17:45 – 18:00</strong></td>
+              <td><strong>17:45 – 17:55</strong></td>
               <td>
                 <div class="session-name">Closing Remarks</div>
                 <div class="session-sub">Wrap-up and farewells</div>
               </td>
-              <td>15 min</td>
+              <td>10 min</td>
             </tr>
           </tbody>
         </table>
@@ -1288,8 +1441,8 @@ Genova (Italy)</div>
       <img src="assets/loghi/mcae.png" alt="MCAE Lab" style="height: 70px; object-fit: contain;">
     </div>
   </footer>
-  
-  
+
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const sessionRows = document.querySelectorAll('.session-row');
@@ -1363,10 +1516,10 @@ Genova (Italy)</div>
         link.addEventListener('click', (e) => {
           e.preventDefault();
           const sessionId = link.getAttribute('data-session');
-          
+
           // Expand session in program table
           expandSession(sessionId);
-          
+
           // Scroll smoothly and center the expanded row
           const targetRow = document.getElementById(`row-${sessionId}`);
           if (targetRow) {
@@ -1377,6 +1530,5 @@ Genova (Italy)</div>
     });
   </script>
 </body>
+
 </html>
-
-
